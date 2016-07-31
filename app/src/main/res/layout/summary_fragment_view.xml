@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+
+<!--<com.github.ksoichiro.android.observablescrollview.ObservableListView-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/scrollView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="500sp">-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:baselineAligned="false">-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="500sp"-->
+        <!--android:orientation="vertical">-->
+    <!--<include layout="@layout/material_view_pager_placeholder"/>-->
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="75sp"-->
+        <!--android:layout_height="75sp"-->
+        <!--android:id="@+id/view"-->
+        <!--android:layout_marginLeft="15sp">-->
+        <!--<com.android.volley.toolbox.NetworkImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/foodImageView"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
+    <!--</android.support.v7.widget.CardView>-->
+
+
+    <!--<Spinner-->
+        <!--android:layout_width="150sp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/servingSelector"/>-->
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:id="@+id/factSheetCardView"-->
+        <!--android:theme="@style/AppTheme"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--android:layout_marginBottom="15dp"-->
+        <!--android:layout_below="@+id/servingSelector">-->
+
+
+
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignLeft="@+id/factSheetCardView"-->
+        <!--android:layout_alignStart="@+id/factSheetCardView"-->
+        <!--android:layout_below="@+id/servingSelector">-->
+<!--<com.github.ksoichiro.android.observablescrollview.ObservableListView android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:id="@+id/factSheetListView"-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android" />-->
+            <!--android:layout_below="@+id/unitsHeaderTextView" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+            <!--android:text="Units"-->
+            <!--android:id="@+id/unitsHeaderTextView"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginRight="@dimen/summary_units_position_text"-->
+            <!--android:layout_marginEnd="@dimen/summary_units_position_text" />-->
+    <!--</RelativeLayout>-->
+
+    <!--</android.support.v7.widget.CardView>-->
+
+<!--</LinearLayout>-->
+<!--</RelativeLayout>-->
+
+    <!--</com.github.ksoichiro.android.observablescrollview.ObservableListView>-->
+
+<!--<com.github.ksoichiro.android.observablescrollview.ObservableScrollView-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/scrollView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<include layout="@layout/material_view_pager_placeholder"/>-->
+
+        <!--<android.support.v7.widget.CardView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/cardMarginVertical"-->
+            <!--android:layout_marginLeft="@dimen/cardMarginHorizontal"-->
+            <!--android:layout_marginRight="@dimen/cardMarginHorizontal"-->
+            <!--android:layout_marginTop="@dimen/cardMarginVertical"-->
+            <!--android:background="@android:color/white"-->
+            <!--app:cardElevation="4dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<ListView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:id="@+id/factSheetListView"-->
+                    <!--xmlns:android="http://schemas.android.com/apk/res/android" />-->
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".FoodProfileActivity">-->
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/card_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="2dp"-->
+        <!--app:cardCornerRadius="2dp"-->
+        <!--app:cardElevation="2dp"-->
+        <!--app:cardPreventCornerOverlap="false"-->
+        <!--app:contentPadding="0dp">-->
+<android.support.v7.widget.RecyclerView android:id="@+id/factSheetListView"
+    android:scrollbars="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
+<!--</android.support.v7.widget.CardView>-->
+<!--</FrameLayout>-->
+<!--</RelativeLayout>-->
+
+                        <!--</LinearLayout>-->
+
+                    <!--</android.support.v7.widget.CardView>-->
+                <!--</LinearLayout>-->
+
+            <!--</com.github.ksoichiro.android.observablescrollview.ObservableScrollView>-->

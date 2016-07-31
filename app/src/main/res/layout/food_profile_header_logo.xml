@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:gravity="left">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/header_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4sp"
+        android:text="Material is Good"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="left"/>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/header_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/header_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/header_name"
+        android:layout_alignEnd="@+id/header_name"
+        android:layout_gravity="left"
+        android:gravity="left"/>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/header_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Source"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/header_group"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/header_group"
+        android:layout_alignEnd="@+id/header_group"
+        android:layout_gravity="left"
+        android:gravity="left"/>
+
+    <Spinner
+    android:layout_width="150sp"
+    android:layout_height="wrap_content"
+    android:id="@+id/servingSelector"
+        android:layout_marginTop="85sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="end"
+        android:background="#aaa5a5"
+        android:alpha="0.7"
+        android:clickable="true"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    </RelativeLayout>

@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "412338901897",
+    "firebase_url": "https://nutritiondb-3314c.firebaseio.com",
+    "project_id": "nutritiondb-3314c",
+    "storage_bucket": "nutritiondb-3314c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412338901897:android:b3055f3c874712f3",
+        "android_client_info": {
+          "package_name": "nutritiondb.ben.db2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412338901897-ts7smn294mfceiaapt5s6r8nmesfpfpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOC7NOPnP2jls5UztRJHsDq-cZmSy2sTo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412338901897:android:b3055f3c874712f3",
+        "android_client_info": {
+          "package_name": "nutritiondb.ben.db2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412338901897-ts7smn294mfceiaapt5s6r8nmesfpfpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOC7NOPnP2jls5UztRJHsDq-cZmSy2sTo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

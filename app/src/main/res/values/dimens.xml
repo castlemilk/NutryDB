@@ -1,0 +1,28 @@
+<resources>
+
+    <dimen name="tab_icon">21dp</dimen>
+    <dimen name="actionbar_icon">26dp</dimen>
+    <!-- These two icons looks larger than others at the same size for some reason -->
+    <dimen name="sort_asc_desc_icon">22dp</dimen>
+    <dimen name="list_icon">26dp</dimen>
+    <dimen name="text_icon">16dp</dimen>
+    <dimen name="empty_view_icon">52dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Default sizes for Samsung multiwindow. -->
+    <dimen name="app_defaultsize_w">632.0dip</dimen>
+    <dimen name="app_defaultsize_h">598.0dip</dimen>
+    <dimen name="app_minimumsize_w">632.0dip</dimen>
+    <dimen name="app_minimumsize_h">598.0dip</dimen>
+    <dimen name="summary_units_position_text">85sp</dimen>
+    <dimen name="detailed_units_header_text">-60dp</dimen>
+    <dimen name="detailed_child_name_text">14sp</dimen>
+    <dimen name="detailed_child_parent_left_padding">30sp</dimen>
+    <dimen name="detailed_child_units_text">14sp</dimen>
+    <dimen name="detailed_units_position_text">95sp</dimen>
+    <dimen name="detailed_child_value_text">14sp</dimen>
+
+</resources>
