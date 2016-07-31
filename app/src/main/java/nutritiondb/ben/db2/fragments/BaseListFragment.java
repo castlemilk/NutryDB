@@ -19,8 +19,13 @@ import com.shamanland.fonticon.FontIconDrawable;
 
 import nutritiondb.ben.db2.R;
 
-/**
- * Created by benebsworth on 25/06/16.
+/** BaseListFragment
+ * Underlying fragment usage:
+ * RecentFragment -----|
+ *                     |--> FoodProfileListFragment --> BaseListFragment
+ * FavouriteFragment --|
+ * Provides API for handling the empty view, deleting list items etc.
+ *
  */
 public abstract class BaseListFragment extends ListFragment {
     protected View emptyView;

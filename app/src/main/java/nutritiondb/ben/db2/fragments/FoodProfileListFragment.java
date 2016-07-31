@@ -24,7 +24,7 @@ import nutritiondb.ben.db2.models.FoodProfile;
 import nutritiondb.ben.db2.views.adapters.FoodProfileListAdapter;
 
 /**
- * Created by benebsworth on 12/07/16.
+ *
  */
 public abstract class FoodProfileListFragment extends BaseListFragment {
     private static final String TAG =FoodProfileListFragment.class.getSimpleName();
