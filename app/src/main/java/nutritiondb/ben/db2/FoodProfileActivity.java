@@ -25,8 +25,13 @@ import nutritiondb.ben.db2.models.FoodProfile;
 import nutritiondb.ben.db2.models.Portion;
 import nutritiondb.ben.db2.views.adapters.ProfilePagerAdapter;
 
-/**
- * Created by benebsworth on 3/07/16.
+/** FoodProfileActivity
+ *  Acitivty for the presentation of the selected food profile
+ *  Will be started from the FoodProfileListFragment which displays the list of food items. Starts
+ *  when clicked.
+ *  TODO: improve spinner management
+ *  TODO: routing based on specific nutrient selection
+ *
  */
 public class FoodProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     static final String PREF = "FoodProfile";

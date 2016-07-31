@@ -33,8 +33,12 @@ import nutritiondb.ben.db2.models.Portion;
 import nutritiondb.ben.db2.views.adapters.ExpandableListAdapter;
 import nutritiondb.ben.db2.views.adapters.SummaryDataRecyclerAdapter;
 
-/**
- * Created by benebsworth on 30/07/16.
+/** Fragment response for generating the nutrition fact sheet display. Will route usage of
+ *  different adapters based on summary/detailed tabs. It is initialised in
+ *  ProfilePagerAdapter
+ *  TODO: Improve error/exception handling to display a graceful error fragment
+ *  TODO: Enable routing based on specific nutritional fact selection.
+ *  TODO: Save expansion state
  */
 public class FactSheetFragment extends Fragment {
 
@@ -159,7 +163,6 @@ public class FactSheetFragment extends Fragment {
             View layout = inflater.inflate(R.layout.empty_view, container, false);
             return layout;
         }
-//        initialise_portions();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         switch (getPosition()) {
             case SUMMARY_TAB:

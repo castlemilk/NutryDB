@@ -12,8 +12,9 @@ import nutritiondb.ben.db2.Application;
 import nutritiondb.ben.db2.fragments.FactSheetFragment;
 import nutritiondb.ben.db2.models.FoodProfile;
 
-/**
- * Created by benebsworth on 3/07/16.
+/** ProfilePagerAdapter
+ *  Adapter for managing the summary + detailed tabs.
+ *
  */
 
 public class ProfilePagerAdapter extends FragmentStatePagerAdapter {
@@ -22,8 +23,6 @@ public class ProfilePagerAdapter extends FragmentStatePagerAdapter {
     private Application app;
     private FoodProfile foodProfile;
     private Fragment[]  fragments;
-//    SummaryFragment tabSummary;
-//    DetailedFragment tabDetailed;
     public FactSheetFragment summaryTab;
     public FactSheetFragment detailedTab;
     public ProfilePagerAdapter(Application app, FragmentManager fm) {
@@ -32,8 +31,6 @@ public class ProfilePagerAdapter extends FragmentStatePagerAdapter {
         this.foodProfile = app.currentFoodProfile;
         summaryTab = FactSheetFragment.newInstance("summary", foodProfile);
         detailedTab = FactSheetFragment.newInstance("detailed", foodProfile);
-//        tabSummary = new SummaryFragment();
-//        tabDetailed = new DetailedFragment();
         fragments = new Fragment[] {summaryTab, detailedTab};
     }
 

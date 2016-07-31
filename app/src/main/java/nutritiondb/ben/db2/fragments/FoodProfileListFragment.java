@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -29,30 +28,30 @@ import nutritiondb.ben.db2.views.adapters.FoodProfileListAdapter;
  */
 public abstract class FoodProfileListFragment extends BaseListFragment {
     private static final String TAG =FoodProfileListFragment.class.getSimpleName();
-    private Drawable icFilter;
-    private Drawable icClock;
-    private Drawable icList;
-    private Drawable icArrowUp;
-    private Drawable icArrowDown;
+//    private Drawable icFilter;
+//    private Drawable icClock;
+//    private Drawable icList;
+//    private Drawable icArrowUp;
+//    private Drawable icArrowDown;
 
     private FoodProfileListAdapter listAdapter;
     private AlertDialog deleteConfirmationDialog = null;
-    private final static String PREF_SORT_ORDER = "sortOrder";
-    private final static String PREF_SORT_DIRECTION = "sortDir";
+//    private final static String PREF_SORT_ORDER = "sortOrder";
+//    private final static String PREF_SORT_DIRECTION = "sortDir";
     private MenuItem miFilter = null;
     private FoodProfileList foodProfileList;
 //    private Intent intent;
     //TODO: implement fragment for history/bookarked item list
 
-    public boolean isFilterExpanded() {
-        return miFilter != null && miFilter.isActionViewExpanded();
-    }
-
-    public void collapseFilter() {
-        if (miFilter != null) {
-            miFilter.collapseActionView();
-        }
-    }
+//    public boolean isFilterExpanded() {
+//        return miFilter != null && miFilter.isActionViewExpanded();
+//    }
+//
+//    public void collapseFilter() {
+//        if (miFilter != null) {
+//            miFilter.collapseActionView();
+//        }
+//    }
     abstract FoodProfileList getFoodProfileList();
     abstract String getItemClickAction();
     protected void setSelectionMode(boolean selectionMode) {

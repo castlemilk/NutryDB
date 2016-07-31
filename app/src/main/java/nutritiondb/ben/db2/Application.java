@@ -23,20 +23,14 @@ import nutritiondb.ben.db2.views.adapters.ItemListAdapter;
  */
 public class Application extends android.app.Application {
     private static final String PREF                    = "app";
-    static final String PREF_RANDOM_FAV_LOOKUP          = "onlyFavDictsForRandomLookup";
     static final String PREF_UI_THEME                   = "UITheme";
     static final String PREF_UI_THEME_LIGHT             = "light";
     static final String PREF_UI_THEME_DARK              = "dark";
-    static final String PREF_USE_VOLUME_FOR_NAV         = "useVolumeForNav";
     public static final String FIREBASE_URL                    = "https://nutritiondb-3314c.firebaseio.com";
     public FoodProfileList                              bookmarks;
     public FoodProfileList                              history;
-
     private FoodProfileStore<FoodProfile> bookmarkStore;
     private FoodProfileStore<FoodProfile> historyStore;
-
-
-    private List<Activity>                              articleActivities;
     public List<ListItem>                               mItemList;
     public boolean listCached                           = false;
     private String lookupQuery                          = "";
@@ -46,7 +40,6 @@ public class Application extends android.app.Application {
     public FireBaseController fireBaseController;
     public ListItemFilter mFilter;
     public FoodProfile currentFoodProfile;
-    public String currentNDBNo;
 
     private static final String TAG = Application.class.getSimpleName();
     @Override
@@ -87,24 +80,7 @@ public class Application extends android.app.Application {
             activity.setTheme(android.R.style.Theme_Holo_Light_DarkActionBar);
         }
     }
-    void push(Activity activity) {
-        this.articleActivities.add(activity);
-        Log.d(TAG, "Activity added, stack size " + this.articleActivities.size());
-        if (this.articleActivities.size() > 3) {
-            Log.d(TAG, "Max stack size exceeded, finishing oldest activity");
-            this.articleActivities.get(0).finish();
-        }
-    }
 
-    void pop(Activity activity) {
-        this.articleActivities.remove(activity);
-    }
-    void addFavourites(String contentURL) {
-//        bookmarks.add(contentURL);
-    }
-    void removeFavourites(String contentURL) {
-//        bookmarks.remove(contentURL);
-    }
     public void saveList(List<ListItem> itemList) {
         itemListDB.saveList(itemList);
     }
