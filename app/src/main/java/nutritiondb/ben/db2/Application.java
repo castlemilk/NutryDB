@@ -183,8 +183,11 @@ public class Application extends android.app.Application {
         return getItemList(false);
     }
     public List<ListItem> getItemList(boolean async) {
-        //TODO: retrieve list of ListItems
-//        long t0 = System.currentTimeMillis();
+        /**
+         * Get item list from Firebase if the there is no current list cached.
+         * TODO: this needs improving because one a list is cached there is no further check
+         * TODO: to evaluate changes in the list and respond accordingly to syncronise.
+         */
         List<ListItem> itemList = itemListDB.getItemList();
         if (itemList != null) {
             Log.i(TAG, "Using stored list");
@@ -193,8 +196,7 @@ public class Application extends android.app.Application {
         }
         else {
                 Log.i(TAG, "list not found, pulling from server");
-                //TODO: use FireBaseController...
-                fireBaseController.getItems("itemList", this);
+                fireBaseController.getItems(this);
             }
 
         return itemList;

@@ -32,6 +32,7 @@ public class FireBaseController extends Application {
     private List<ListItem> mItemList;
     public HashMap<String, HashMap<String, String>> itemInfo;
     private static final String TAG = FireBaseController.class.getSimpleName();
+    protected static final String ITEM_LIST_PATH = "/V2/items";
 
     public FireBaseController() {
 
@@ -44,7 +45,7 @@ public class FireBaseController extends Application {
 
     }
 
-    public Map<String, String> getItems(String ref_dir, final Context mContext) {
+    public Map<String, String> getItems(final Context mContext) {
         /** Retrieves the item list containing the mapping between searchable food names and their
          * unique ID's
          * */
@@ -53,7 +54,7 @@ public class FireBaseController extends Application {
         final HashMap<String, String> itemList = new HashMap<String, String>();
         mItemList.clear();
 
-            Query items = mDatabaseReference.child(ref_dir);
+            Query items = mDatabaseReference.child(ITEM_LIST_PATH);
 
             items.addValueEventListener(new ValueEventListener() {
                 HashMap<String, Object> result;
@@ -91,7 +92,7 @@ public class FireBaseController extends Application {
 
 
     public HashMap<String, HashMap<String, String>> getProfile(final String NDB_No, final Context mContext) {
-        /* Method to pull the firebase DB profile information for the specified item.
+        /** Method to pull the firebase DB profile information for the specified item.
         * Expected ref_dir will be the NDB_number, i.e 10001. From this there will a tree structure as
         * Follows:
         * NDB_number
@@ -136,8 +137,6 @@ public class FireBaseController extends Application {
                 String name = (String) dataSnapshot.child("name/long").getValue();
                 Log.d(TAG, "getProfile:group:"+group);
                 Log.d(TAG, "getProfile:name:"+name);
-//                FoodProfile profile2 = dataSnapshot.getValue(FoodProfile.class);
-//                System.out.println("FirebaseController:getValue:"+profile2.toString());
                 FoodProfile profile = new FoodProfile(NDB_No, name, group);
                 //access portions:
                 for (DataSnapshot item : dataSnapshot.child("portions").getChildren()) {
