@@ -54,10 +54,11 @@ android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:gravity="end"
-        android:background="#aaa5a5"
+        android:background="#ebe8e8"
         android:alpha="0.7"
         android:clickable="true"
         android:singleLine="true"
-        android:ellipsize="end" />
+        android:ellipsize="end"
+        android:elevation="10sp" />
 
     </RelativeLayout>

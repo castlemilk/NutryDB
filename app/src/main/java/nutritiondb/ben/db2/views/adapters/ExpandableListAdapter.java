@@ -1,6 +1,7 @@
 package nutritiondb.ben.db2.views.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +63,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 } else {
                     itemController.btn_expand_toggle.setImageResource(R.drawable.ic_add_black_24dp);
                 }
-                itemController.btn_expand_toggle.setOnClickListener(new View.OnClickListener() {
+                itemController.parent_card.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (item.invisibleChildren == null) {
@@ -112,6 +113,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     private static class ListHeaderViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public ImageView btn_expand_toggle;
+        public CardView parent_card;
 
         public Item refferalItem;
 
@@ -119,6 +121,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.tv_header);
             btn_expand_toggle = (ImageView) itemView.findViewById(R.id.iv_exp);
+            parent_card = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
     private static class ListChildViewHolder extends RecyclerView.ViewHolder {

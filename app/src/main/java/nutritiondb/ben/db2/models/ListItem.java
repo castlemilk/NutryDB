@@ -10,6 +10,7 @@ public class ListItem {
     * ListItem
     *   - name (i.e. Cheese)
     *   - group (i.e. Diary, milk product)
+    *   - source (i.e USDA, or NUTTAB)
     * */
     private String NDB_no;
     private String name;

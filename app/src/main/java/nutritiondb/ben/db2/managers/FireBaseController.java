@@ -29,7 +29,6 @@ public class FireBaseController extends Application {
 
     protected FirebaseDatabase mFirebaseDatabase;
     protected DatabaseReference mDatabaseReference;
-//    public HashMap<String, String> mItemList;
     private List<ListItem> mItemList;
     public HashMap<String, HashMap<String, String>> itemInfo;
     private static final String TAG = FireBaseController.class.getSimpleName();
@@ -37,7 +36,7 @@ public class FireBaseController extends Application {
     public FireBaseController() {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebaseDatabase.getReferenceFromUrl(Application.FIREBASE_URL);
+        mDatabaseReference = mFirebaseDatabase.getReference();
         itemInfo = new HashMap<String, HashMap<String, String>>();
         mItemList = new ArrayList<>();
 
@@ -46,6 +45,9 @@ public class FireBaseController extends Application {
     }
 
     public Map<String, String> getItems(String ref_dir, final Context mContext) {
+        /** Retrieves the item list containing the mapping between searchable food names and their
+         * unique ID's
+         * */
         Log.i(TAG, "Getting items..");
         final long t0 = System.currentTimeMillis();
         final HashMap<String, String> itemList = new HashMap<String, String>();
@@ -64,21 +66,15 @@ public class FireBaseController extends Application {
 
                         Map<String, String> results = (Map<String, String>) dataSnapshot.getValue();
 
-
                         if (results != null) {
 
                             for (Map.Entry<String,String> result : results.entrySet()) {
-//                                mitemList.put(result.getKey(), result.getValue());
                                 mItemList.add(new ListItem(result.getKey(), result.getValue()));
-//                                ((Application)mContext).itemListDB.addItem(new ListItem(result.getKey(), result.getValue()));
                             }
 //                            mItemList = mitemList;
                             Log.d(TAG, String.format("Got list in %dms", System.currentTimeMillis() - t0));
                             ((Application)mContext).mItemList = mItemList;
                             ((Application)mContext).saveList(mItemList);
-
-
-
                         }
                     }
                 }

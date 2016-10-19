@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import nutritiondb.ben.db2.fragments.FavouriteFragment;
 import nutritiondb.ben.db2.fragments.LookupFragment;
 import nutritiondb.ben.db2.fragments.RecentFragment;
-import nutritiondb.ben.db2.fragments.SettingsFragment;
 
 /**
  * Created by benebsworth on 25/06/16.
@@ -17,7 +16,7 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
     public LookupFragment tabLookup;
     FavouriteFragment tabFavourites;
     RecentFragment tabRecent;
-    SettingsFragment tabSettings;
+//    SettingsFragment tabSettings;
 
 
 
@@ -27,8 +26,8 @@ public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
         tabLookup = new LookupFragment();
         tabFavourites = new FavouriteFragment();
         tabRecent = new RecentFragment();
-        tabSettings = new SettingsFragment();
-        fragments = new Fragment[] {tabLookup,tabFavourites,tabRecent, tabSettings};
+//        tabSettings = new SettingsFragment();
+        fragments = new Fragment[] {tabLookup,tabFavourites,tabRecent};//, tabSettings};
 
 
 

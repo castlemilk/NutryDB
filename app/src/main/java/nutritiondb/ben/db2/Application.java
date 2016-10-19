@@ -26,7 +26,6 @@ public class Application extends android.app.Application {
     static final String PREF_UI_THEME                   = "UITheme";
     static final String PREF_UI_THEME_LIGHT             = "light";
     static final String PREF_UI_THEME_DARK              = "dark";
-    public static final String FIREBASE_URL                    = "https://nutritiondb-3314c.firebaseio.com";
     public FoodProfileList                              bookmarks;
     public FoodProfileList                              history;
     private FoodProfileStore<FoodProfile> bookmarkStore;
@@ -174,6 +173,7 @@ public class Application extends android.app.Application {
 
 
     }
+
 
     public String getLookupQuery() {
         return lookupQuery;
