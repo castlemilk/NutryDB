@@ -68,7 +68,7 @@ public class FoodProfileActivity extends AppCompatActivity implements AdapterVie
         else {
             mfoodProfile = (FoodProfile) getIntent().getExtras().getSerializable("profile");
 
-            app.currentFoodProfile =mfoodProfile;
+            app.currentFoodProfile = mfoodProfile;
             Log.i(TAG, "position: "+ position);
             AsyncTask<Void, Void, ProfilePagerAdapter> createAdapterTask = new AsyncTask<Void, Void, ProfilePagerAdapter>() {
                 public Exception exception;

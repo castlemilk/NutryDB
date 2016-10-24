@@ -19,7 +19,6 @@ import nutritiondb.ben.db2.Application;
 import nutritiondb.ben.db2.FoodProfileActivity;
 import nutritiondb.ben.db2.LookupListener;
 import nutritiondb.ben.db2.R;
-//import nutritiondb.ben.db2.Application;
 
 /**
  * Created by benebsworth on 25/06/16.
@@ -63,8 +62,6 @@ public class LookupFragment extends BaseListFragment implements LookupListener {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Log.i("--", "Item clicked: " + position);
-                //TODO: get profile online/offline
-                //TODO: start activity with profile information
                 Intent intent = new Intent(getActivity(),
                         FoodProfileActivity.class);
                 intent.putExtra("position", position);

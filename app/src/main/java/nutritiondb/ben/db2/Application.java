@@ -22,6 +22,9 @@ import nutritiondb.ben.db2.views.adapters.ItemListAdapter;
  * Created by benebsworth on 25/06/16.
  */
 public class Application extends android.app.Application {
+    /**
+     * Application interface managing all components across app.
+     */
     private static final String PREF                    = "app";
     static final String PREF_UI_THEME                   = "UITheme";
     static final String PREF_UI_THEME_LIGHT             = "light";
@@ -39,8 +42,12 @@ public class Application extends android.app.Application {
     public FireBaseController fireBaseController;
     public ListItemFilter mFilter;
     public FoodProfile currentFoodProfile;
-
+    private static Application singleton = null;
     private static final String TAG = Application.class.getSimpleName();
+
+    public static Application getInstance() {
+        return singleton;
+    }
     @Override
     public void onCreate() {
         super.onCreate();
@@ -48,7 +55,7 @@ public class Application extends android.app.Application {
         lastResult = new ItemListAdapter(this);
         itemListDB = new DBHandler_ItemList(this);
         foodProfileDB = new DBHandler_FoodProfile(this);
-        fireBaseController = new FireBaseController();
+        fireBaseController = new FireBaseController(this);
 
         bookmarkStore = new FoodProfileStore<>(this,"bookmarks");
         historyStore = new FoodProfileStore<>(this,"history");
@@ -60,6 +67,7 @@ public class Application extends android.app.Application {
         bookmarks.load();
         history.load();
         Log.i(TAG,"initialised objects..");
+        singleton = this;
     }
 
     SharedPreferences prefs() {
@@ -192,7 +200,6 @@ public class Application extends android.app.Application {
         if (itemList != null) {
             Log.i(TAG, "Using stored list");
             listCached = true;
-
         }
         else {
                 Log.i(TAG, "list not found, pulling from server");

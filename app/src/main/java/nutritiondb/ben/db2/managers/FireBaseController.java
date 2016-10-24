@@ -34,7 +34,8 @@ public class FireBaseController extends Application {
     private static final String TAG = FireBaseController.class.getSimpleName();
     protected static final String ITEM_LIST_PATH = "/V2/items";
 
-    public FireBaseController() {
+
+    public FireBaseController(Context mContext) {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference();
@@ -130,6 +131,8 @@ public class FireBaseController extends Application {
 
         HashMap<String, HashMap<String, String>> profile = new HashMap<String, HashMap<String, String>>();
         Query items = mDatabaseReference.child(ref_dir);
+        Log.i("DB reference: ", mDatabaseReference.toString());
+        Log.i("path:", items.getRef().toString());
         items.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -152,7 +155,6 @@ public class FireBaseController extends Application {
                             nutrient_dict.get("units"),
                             String.valueOf(nutrient_dict.get("value"))));
                 }
-                //join results to return
                 Log.d(TAG, String.format("Got profile in %dms", System.currentTimeMillis() - t0));
                 ((FoodProfileActivity)mContext).gotProfile(profile);
 
