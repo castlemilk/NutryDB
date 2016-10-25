@@ -18,6 +18,7 @@ import java.util.Map;
 import nutritiondb.ben.db2.Application;
 import nutritiondb.ben.db2.FoodProfileActivity;
 import nutritiondb.ben.db2.models.FoodProfile;
+import nutritiondb.ben.db2.models.Item;
 import nutritiondb.ben.db2.models.ListItem;
 import nutritiondb.ben.db2.models.Nutrient;
 import nutritiondb.ben.db2.models.Portion;
@@ -32,7 +33,7 @@ public class FireBaseController extends Application {
     private List<ListItem> mItemList;
     public HashMap<String, HashMap<String, String>> itemInfo;
     private static final String TAG = FireBaseController.class.getSimpleName();
-    protected static final String ITEM_LIST_PATH = "/V2/items";
+    protected static final String ITEM_LIST_PATH = "/v2/items";
 
 
     public FireBaseController(Context mContext) {
@@ -69,10 +70,12 @@ public class FireBaseController extends Application {
                         Map<String, String> results = (Map<String, String>) dataSnapshot.getValue();
 
                         if (results != null) {
-
-                            for (Map.Entry<String,String> result : results.entrySet()) {
-                                mItemList.add(new ListItem(result.getKey(), result.getValue()));
+                            for (DataSnapshot itemSnapshot: dataSnapshot.getChildren()) {
+                                Item item = itemSnapshot.getValue(Item.class);
                             }
+//                            for (Map.Entry<String,String> result : results.entrySet()) {
+//                                mItemList.add(new ListItem(result.getKey(), result.getValue()));
+//                            }
 //                            mItemList = mitemList;
                             Log.d(TAG, String.format("Got list in %dms", System.currentTimeMillis() - t0));
                             ((Application)mContext).mItemList = mItemList;

@@ -96,11 +96,11 @@ public class Application extends android.app.Application {
         //TODO: implement search or add refer to search module
         long t0 = System.currentTimeMillis();
         if (cachedList) {
-            Log.i(TAG,"using cache....");
+            Log.i(TAG,"using saved list");
             return itemListDB.searchList(query, 10);
         }
         else {
-            Log.i(TAG,"using temporary list....");
+            Log.i(TAG,"using temporary list that was downloaded.");
             if (mItemList != null) {
                 mFilter = new ListItemFilter(query, mItemList, ListItemFilter.SearchMode.CONTAINS);
                 return mFilter.filter();

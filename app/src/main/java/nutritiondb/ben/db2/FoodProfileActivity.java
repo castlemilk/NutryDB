@@ -208,6 +208,10 @@ public class FoodProfileActivity extends AppCompatActivity implements AdapterVie
 
 
     public void gotProfile(FoodProfile foodProfile) {
+        /**
+         * Call back method one the profile has been retrieved and parsed by the firebase controller
+         *
+         */
 
         Log.i(TAG, ":gotProfile:" + foodProfile.getNutrients().values().size() + ":nutrients:");
         app.currentFoodProfile = foodProfile;
