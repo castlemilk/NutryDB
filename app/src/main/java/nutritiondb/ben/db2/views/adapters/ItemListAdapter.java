@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 
 import nutritiondb.ben.db2.Application;
 import nutritiondb.ben.db2.R;
-import nutritiondb.ben.db2.models.ListItem;
+import nutritiondb.ben.db2.models.Item;
 
 /**
  * Created by benebsworth on 27/06/16.
@@ -28,8 +28,8 @@ public class ItemListAdapter extends BaseAdapter{
     private static final String TAG = ItemListAdapter.class.getSimpleName();
     Handler mainHandler;
     ExecutorService executor;
-    ArrayList<ListItem> list;
-    ArrayList<ListItem> itemsFound;
+    ArrayList<Item> list;
+    ArrayList<Item> itemsFound;
 
     private final int   chunkSize;
     private final int   loadMoreThreashold;
@@ -48,13 +48,13 @@ public class ItemListAdapter extends BaseAdapter{
 
     }
 
-    public void setData(List<ListItem> data) {
+    public void setData(List<Item> data) {
         //TODO: add data to adapter list
         synchronized (list) {
             list.clear();
             list.addAll(data);
             Log.i(TAG, "found items: ");
-            for (ListItem item : list) {
+            for (Item item : list) {
                 Log.i(TAG, item.getName());
             }
             notifyDataSetChanged();
@@ -68,8 +68,8 @@ public class ItemListAdapter extends BaseAdapter{
     }
 
     @Override
-    public ListItem getItem(int position) {
-        ListItem result;
+    public Item getItem(int position) {
+        Item result;
         synchronized (list) {
             result = list.get(position);
 
@@ -84,7 +84,7 @@ public class ItemListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ListItem item = list.get(position);
+        Item item = list.get(position);
         View view;
 
         if (convertView != null) {

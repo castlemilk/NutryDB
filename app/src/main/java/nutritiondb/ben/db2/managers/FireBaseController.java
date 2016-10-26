@@ -30,7 +30,7 @@ public class FireBaseController extends Application {
 
     protected FirebaseDatabase mFirebaseDatabase;
     protected DatabaseReference mDatabaseReference;
-    private List<ListItem> mItemList;
+    private List<Item> mItemList;
     public HashMap<String, HashMap<String, String>> itemInfo;
     private static final String TAG = FireBaseController.class.getSimpleName();
     protected static final String ITEM_LIST_PATH = "/v2/items";
@@ -72,6 +72,8 @@ public class FireBaseController extends Application {
                         if (results != null) {
                             for (DataSnapshot itemSnapshot: dataSnapshot.getChildren()) {
                                 Item item = itemSnapshot.getValue(Item.class);
+                                item.setUUID(itemSnapshot.getKey());
+                                mItemList.add(item);
                             }
 //                            for (Map.Entry<String,String> result : results.entrySet()) {
 //                                mItemList.add(new ListItem(result.getKey(), result.getValue()));

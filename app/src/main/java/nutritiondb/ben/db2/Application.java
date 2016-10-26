@@ -15,7 +15,7 @@ import nutritiondb.ben.db2.managers.DBHandler_ItemList;
 import nutritiondb.ben.db2.managers.FireBaseController;
 import nutritiondb.ben.db2.managers.FoodProfileList;
 import nutritiondb.ben.db2.models.FoodProfile;
-import nutritiondb.ben.db2.models.ListItem;
+import nutritiondb.ben.db2.models.Item;
 import nutritiondb.ben.db2.views.adapters.ItemListAdapter;
 
 /**
@@ -33,7 +33,7 @@ public class Application extends android.app.Application {
     public FoodProfileList                              history;
     private FoodProfileStore<FoodProfile> bookmarkStore;
     private FoodProfileStore<FoodProfile> historyStore;
-    public List<ListItem>                               mItemList;
+    public List<Item>                               mItemList;
     public boolean listCached                           = false;
     private String lookupQuery                          = "";
     public ItemListAdapter lastResult;
@@ -88,11 +88,11 @@ public class Application extends android.app.Application {
         }
     }
 
-    public void saveList(List<ListItem> itemList) {
+    public void saveList(List<Item> itemList) {
         itemListDB.saveList(itemList);
     }
 
-    public List<ListItem> find(String query, boolean cachedList) {
+    public List<Item> find(String query, boolean cachedList) {
         //TODO: implement search or add refer to search module
         long t0 = System.currentTimeMillis();
         if (cachedList) {
@@ -119,14 +119,14 @@ public class Application extends android.app.Application {
         lookupListeners.remove(listener);
     }
 
-    private void setLookupResult(String query, List<ListItem> data) {
+    private void setLookupResult(String query, List<Item> data) {
         this.lastResult.setData(data);
         lookupQuery = query;
         SharedPreferences.Editor edit = prefs().edit();
         edit.putString("query", query);
         edit.apply();
     }
-    private AsyncTask<Void, Void, List<ListItem>> currentLookupTask;
+    private AsyncTask<Void, Void, List<Item>> currentLookupTask;
 
     public void lookup(String query) {
         this.lookup(query, true, true);
@@ -143,17 +143,17 @@ public class Application extends android.app.Application {
         }
         notifyLookupStarted(query);
         if (query == null || query.equals("")) {
-            setLookupResult("", new ArrayList<ListItem>());
+            setLookupResult("", new ArrayList<Item>());
             notifyLookupFinished(query);
         }
         if (async) {
-            currentLookupTask = new AsyncTask<Void, Void, List<ListItem>>() {
+            currentLookupTask = new AsyncTask<Void, Void, List<Item>>() {
                 @Override
-                protected List<ListItem> doInBackground(Void... params) {
+                protected List<Item> doInBackground(Void... params) {
                     return find(query, listCached);
                 }
                 @Override
-                protected void onPostExecute(List<ListItem> result) {
+                protected void onPostExecute(List<Item> result) {
                     if (!isCancelled()) {
                         if (result != null) {
                             Log.i(TAG, "found: " + result.toString());
@@ -187,16 +187,16 @@ public class Application extends android.app.Application {
         return lookupQuery;
     }
 
-    public List<ListItem> getitemList() {
+    public List<Item> getitemList() {
         return getItemList(false);
     }
-    public List<ListItem> getItemList(boolean async) {
+    public List<Item> getItemList(boolean async) {
         /**
          * Get item list from Firebase if the there is no current list cached.
          * TODO: this needs improving because one a list is cached there is no further check
          * TODO: to evaluate changes in the list and respond accordingly to syncronise.
          */
-        List<ListItem> itemList = itemListDB.getItemList();
+        List<Item> itemList = itemListDB.getItemList();
         if (itemList != null) {
             Log.i(TAG, "Using stored list");
             listCached = true;

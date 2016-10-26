@@ -24,28 +24,8 @@ public class Nutrient implements Serializable{
 //        this.abbrv = abbrv;
         this.name = name;
         this.units = units;
-        this.value =value;
+        this.value = value;
     }
-
-
-//    protected Nutrient(Parcel in) {
-//        abbrv = in.readString();
-//        name = in.readString();
-//        units = in.readString();
-//        value = in.readString();
-//    }
-//
-//    public static final Creator<Nutrient> CREATOR = new Creator<Nutrient>() {
-//        @Override
-//        public Nutrient createFromParcel(Parcel in) {
-//            return new Nutrient(in);
-//        }
-//
-//        @Override
-//        public Nutrient[] newArray(int size) {
-//            return new Nutrient[size];
-//        }
-//    };
 
     public HashMap<String, String> getNutrient() {
         HashMap<String,String> nutrient = new HashMap<String, String>();
@@ -57,8 +37,17 @@ public class Nutrient implements Serializable{
 
         return nutrient;
     }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getValue() {
         return value;
+    }
+    public void setValue(String value) {
+        this.value = value;
     }
     public Double getValueD() {
         return Double.valueOf(value);
@@ -66,11 +55,17 @@ public class Nutrient implements Serializable{
     public String getUnit() {
         return units;
     }
+    public void setUnit(String units) {
+        this.units = units;
+    }
     public String getValueScaled(Double scaling_factor) {
         return df.format(Double.valueOf(value)*(scaling_factor/100));
     }
     public Nutrient getNutrientScaled(Double scaling_factor) {
         return new Nutrient(name, units, getValueScaled(scaling_factor));
+
+    }
+    public Nutrient getNutrient(String abbrev) {
 
     }
 

@@ -14,7 +14,7 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import nutritiondb.ben.db2.models.ListItem;
+import nutritiondb.ben.db2.models.Item;
 
 /**
  * Created by benebsworth on 19/06/16.
@@ -27,12 +27,13 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
     // Database Name
     private static final String DATABASE_NAME = "nutryDB";
     // ItemList table name
-    private static final String TABLE_ITEMLIST = "item_list";
+    private static final String TABLE_ITEMLIST = "ItemList";
 
     // ItemList Table Columns names
-    private static final String KEY_ID = "ndb_no";
+    private static final String KEY_ID = "UUID";
     private static final String KEY_NAME = "name";
-
+    private static final String KEY_SOURCE = "source";
+    private static final String KEY_GROUP = "food_group";
     private GsonBuilder builder;
     private Gson gson;
 
@@ -45,8 +46,11 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_ITEM_LIST_TABLE = "CREATE TABLE IF NOT EXISTS "+TABLE_ITEMLIST+ "("
-                + KEY_ID + " TEXT PRIMARY KEY," + KEY_NAME +" TEXT"+")";
+        String CREATE_ITEM_LIST_TABLE = "CREATE TABLE IF NOT EXISTS "+ TABLE_ITEMLIST + "("
+                + KEY_ID + " TEXT PRIMARY KEY, " +
+                KEY_NAME + " TEXT, " +
+                KEY_GROUP + " TEXT, " +
+                KEY_SOURCE + " TEXT " + ")";
         db.execSQL(CREATE_ITEM_LIST_TABLE);
 
     }
@@ -67,16 +71,18 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
 
 
 
-    public void addItem(ListItem item) {
+    public void addItem(Item item) {
         SQLiteDatabase db  = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, item.getNDBno());
+        values.put(KEY_ID, item.getUUID());
         values.put(KEY_NAME, item.getName());
+        values.put(KEY_SOURCE, item.getGroup());
+        values.put(KEY_GROUP, item.getSource());
         db.insert(TABLE_ITEMLIST, null, values);
 
     }
-    public ListItem getItem(String name) {
+    public Item getItem(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         String q = "";
         q += "SELECT * FROM "+TABLE_ITEMLIST;
@@ -86,7 +92,7 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
         if (cursor != null) {
             cursor.moveToFirst();
 
-            ListItem item = new ListItem(cursor.getString(0), cursor.getString(1));
+            Item item = new Item(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
             cursor.close();
             return item;
         }
@@ -94,8 +100,8 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
             return null;
         }
     }
-    public List<ListItem> searchList(String searchTerm, int match_limit) {
-        List<ListItem> result = new ArrayList<>();
+    public List<Item> searchList(String searchTerm, int match_limit) {
+        List<Item> result = new ArrayList<>();
 
         String q = "";
         q += "SELECT * FROM "+TABLE_ITEMLIST;
@@ -106,9 +112,9 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
         Cursor cursor  = db.rawQuery(q, null);
         if (cursor.moveToFirst()) {
             do {
-                String NDB_no = cursor.getString(0);
-                String name = cursor.getString(1);
-                result.add(new ListItem(NDB_no, name));
+
+
+                result.add(new Item(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3)));
 
             } while (cursor.moveToNext());
 
@@ -117,13 +123,13 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
         db.close();
         return result;
     }
-    public void saveList(List<ListItem> itemList) {
-        AsyncTask<List<ListItem>,Void,Void> saveListTask;
-        saveListTask = new AsyncTask<List<ListItem>, Void, Void>() {
+    public void saveList(List<Item> itemList) {
+        AsyncTask<List<Item>,Void,Void> saveListTask;
+        saveListTask = new AsyncTask<List<Item>, Void, Void>() {
             final long t0 = System.currentTimeMillis();
             @Override
-            protected Void doInBackground(List<ListItem>... params) {
-                for (ListItem item : params[0]) {
+            protected Void doInBackground(List<Item>... params) {
+                for (Item item : params[0]) {
                     addItem(item);
                 }
                 Log.d(TAG, String.format("Saved list in DB in %dms", System.currentTimeMillis() - t0));
@@ -137,14 +143,14 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
 
     }
 
-    public List<ListItem> getItemList() {
-        List<ListItem> result = new ArrayList<>();
+    public List<Item> getItemList() {
+        List<Item> result = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_ITEMLIST, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    result.add(new ListItem(cursor.getString(0), cursor.getString(1)));
+                    result.add(new Item(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3)));
                 } while (cursor.moveToNext());
                 cursor.close();
                 return result;

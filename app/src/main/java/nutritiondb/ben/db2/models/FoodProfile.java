@@ -49,10 +49,14 @@ public class FoodProfile extends BaseFoodProfile implements Serializable{
         else {
             return nutrients;
         }
-
     }
 
     public HashMap<String, Portion> getPortions() {
         return portions;
+    }
+
+    public Nutrient getNutrient(String abbrev) {
+        return nutrients.get(abbrev);
+
     }
 }
