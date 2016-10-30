@@ -19,7 +19,6 @@ import nutritiondb.ben.db2.Application;
 import nutritiondb.ben.db2.FoodProfileActivity;
 import nutritiondb.ben.db2.models.FoodProfile;
 import nutritiondb.ben.db2.models.Item;
-import nutritiondb.ben.db2.models.ListItem;
 import nutritiondb.ben.db2.models.Nutrient;
 import nutritiondb.ben.db2.models.Portion;
 
@@ -72,13 +71,10 @@ public class FireBaseController extends Application {
                         if (results != null) {
                             for (DataSnapshot itemSnapshot: dataSnapshot.getChildren()) {
                                 Item item = itemSnapshot.getValue(Item.class);
+                                System.out.println(item.toString());
                                 item.setUUID(itemSnapshot.getKey());
                                 mItemList.add(item);
                             }
-//                            for (Map.Entry<String,String> result : results.entrySet()) {
-//                                mItemList.add(new ListItem(result.getKey(), result.getValue()));
-//                            }
-//                            mItemList = mitemList;
                             Log.d(TAG, String.format("Got list in %dms", System.currentTimeMillis() - t0));
                             ((Application)mContext).mItemList = mItemList;
                             ((Application)mContext).saveList(mItemList);
@@ -97,7 +93,7 @@ public class FireBaseController extends Application {
         }
 
 
-    public HashMap<String, HashMap<String, String>> getProfile(final String NDB_No, final Context mContext) {
+    public HashMap<String, HashMap<String, String>> getProfile(final String NDB_No,final String source, final Context mContext) {
         /** Method to pull the firebase DB profile information for the specified item.
         * Expected ref_dir will be the NDB_number, i.e 10001. From this there will a tree structure as
         * Follows:
@@ -132,7 +128,7 @@ public class FireBaseController extends Application {
         *
         * */
         final long t0 = System.currentTimeMillis();
-        String ref_dir = "v1/USDA_DB/"+NDB_No;
+        String ref_dir = "v2/"+source+"/"+NDB_No;
 
         HashMap<String, HashMap<String, String>> profile = new HashMap<String, HashMap<String, String>>();
         Query items = mDatabaseReference.child(ref_dir);
@@ -141,28 +137,31 @@ public class FireBaseController extends Application {
         items.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if (source == "NUTTAB") {
+                    String group = (String) dataSnapshot.child("group/group").getValue();
+                    String name = (String) dataSnapshot.child("name/name").getValue();
+                }
+                else if (source == "USDA") {
+                    String group = (String) dataSnapshot.child("group").getValue();
+                    String name = (String) dataSnapshot.child("name/long").getValue();
+                }
                 String group = (String) dataSnapshot.child("group").getValue();
                 String name = (String) dataSnapshot.child("name/long").getValue();
                 Log.d(TAG, "getProfile:group:"+group);
                 Log.d(TAG, "getProfile:name:"+name);
                 FoodProfile profile = new FoodProfile(NDB_No, name, group);
                 //access portions:
-                for (DataSnapshot item : dataSnapshot.child("portions").getChildren()) {
-                    HashMap<String, String> portion_dict = (HashMap<String, String>) item.getValue();
-                    profile.getPortions().put(item.getKey(),new Portion(portion_dict.get("unit"),
-                            String.valueOf(portion_dict.get("g")),
-                            String.valueOf(portion_dict.get("amt"))));
+                for (DataSnapshot portionSnapshot : dataSnapshot.child("portions").getChildren()) {
+                    Portion portion = portionSnapshot.getValue(Portion.class);
+                    profile.getPortions().put(portionSnapshot.getKey(),portion);
                 }
                 //access nutrients:
-                for (DataSnapshot item : dataSnapshot.child("nutrients").getChildren()) {
-                    HashMap<String, String> nutrient_dict = (HashMap<String, String>) item.getValue();
-                    profile.getNutrients().put(item.getKey(), new Nutrient(nutrient_dict.get("name"),
-                            nutrient_dict.get("units"),
-                            String.valueOf(nutrient_dict.get("value"))));
+                for (DataSnapshot nutrientSnapshot : dataSnapshot.child("nutrients").getChildren()) {
+                    Nutrient nutrient = nutrientSnapshot.getValue(Nutrient.class);
+                    profile.getNutrients().put(nutrientSnapshot.getKey(), nutrient);
                 }
                 Log.d(TAG, String.format("Got profile in %dms", System.currentTimeMillis() - t0));
                 ((FoodProfileActivity)mContext).gotProfile(profile);
-
             }
 
             @Override

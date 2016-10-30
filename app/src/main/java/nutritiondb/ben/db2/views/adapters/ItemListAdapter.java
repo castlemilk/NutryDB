@@ -99,9 +99,11 @@ public class ItemListAdapter extends BaseAdapter{
         TextView titleView  = (TextView) view.findViewById(R.id.blob_descriptor_key);
         titleView.setText(item.getName());
         //TODO: set source in the lookup table
-//        TextView subTitleView = (TextView) view.findViewById(R.id.blob_descriptor_source);
-        //subTitleView.setText(item.getSource());
+        TextView groupTitleView = (TextView) view.findViewById(R.id.blob_descriptor_source);
+        groupTitleView.setText(item.getSource());
         //TODO: can implement more list presentation data here.
+        TextView sourceTitleView = (TextView) view.findViewById(R.id.blob_descriptor_group);
+        sourceTitleView.setText(item.getGroup());
         return view;
     }
 

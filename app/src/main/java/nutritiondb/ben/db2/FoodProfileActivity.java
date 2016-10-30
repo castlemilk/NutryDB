@@ -62,8 +62,9 @@ public class FoodProfileActivity extends AppCompatActivity implements AdapterVie
 
         if (action == null) {
             NDB_no = app.lastResult.getItem(position).getUUID();
+            String source = app.lastResult.getItem(position).getSource();
             Log.i(TAG, "position: "+ position);
-            app.fireBaseController.getProfile(NDB_no, this);
+            app.fireBaseController.getProfile(NDB_no, source, this);
         }
         else {
             mfoodProfile = (FoodProfile) getIntent().getExtras().getSerializable("profile");

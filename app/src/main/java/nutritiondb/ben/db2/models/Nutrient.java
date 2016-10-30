@@ -8,20 +8,20 @@ import java.util.HashMap;
  * Created by benebsworth on 13/06/16.
  */
 public class Nutrient implements Serializable{
+    /**
+     * POJO used for the de-serialisation of firebase requests which contain a nested dictionary
+     * of nutrient values with parent abbreviations
+     * This method aims to have the extensability of returning dynamic nutrient values as
+     * different portions are selected in the food profile card.
+     */
 
-    private String abbrv;
     private String name;
     private String units;
     private String value;
     DecimalFormat df = new DecimalFormat("#.##");
-
-    //    // Required default constructor for Firebase object mapping
-    @SuppressWarnings("unused")
     private Nutrient() {
     }
-    @SuppressWarnings("unused")
     public Nutrient(String name, String units, String value) {
-//        this.abbrv = abbrv;
         this.name = name;
         this.units = units;
         this.value = value;
@@ -33,8 +33,6 @@ public class Nutrient implements Serializable{
         nutrient.put("name", name);
         nutrient.put("units", units);
         nutrient.put("value", value);
-//        nutrient.put("abbrv", abbrv);
-
         return nutrient;
     }
     public String getName() {
@@ -46,16 +44,16 @@ public class Nutrient implements Serializable{
     public String getValue() {
         return value;
     }
-    public void setValue(String value) {
-        this.value = value;
+    public void setValue(Double value) {
+        this.value = Double.toString(value);
     }
     public Double getValueD() {
         return Double.valueOf(value);
     }
-    public String getUnit() {
+    public String getUnits() {
         return units;
     }
-    public void setUnit(String units) {
+    public void setUnits(String units) {
         this.units = units;
     }
     public String getValueScaled(Double scaling_factor) {
@@ -65,20 +63,5 @@ public class Nutrient implements Serializable{
         return new Nutrient(name, units, getValueScaled(scaling_factor));
 
     }
-    public Nutrient getNutrient(String abbrev) {
 
-    }
-
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public void writeToParcel(Parcel dest, int flags) {
-//        dest.writeString(name);
-//        dest.writeString(units);
-//        dest.writeString(value);
-//
-//    }
 }

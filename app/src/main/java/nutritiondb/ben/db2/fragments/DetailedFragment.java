@@ -228,19 +228,19 @@ public class DetailedFragment extends Fragment implements AdapterView.OnItemSele
         //Fat
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Fats & Fatty Acids"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Total Fat",
-                nutrients.containsKey("FAT") ? nutrients.get("FAT").getUnit() : "g",
+                nutrients.containsKey("FAT") ? nutrients.get("FAT").getUnits() : "g",
                 nutrients.containsKey("FAT") ? nutrients.get("FAT").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Saturated Fat",
-                nutrients.containsKey("FATSAT") ? nutrients.get("FATSAT").getUnit() : "g",
+                nutrients.containsKey("FATSAT") ? nutrients.get("FATSAT").getUnits() : "g",
                 nutrients.containsKey("FATSAT") ? nutrients.get("FATSAT").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Monounsaturated Fat",
-                nutrients.containsKey("FAMS") ? nutrients.get("FAMS").getUnit() : "g",
+                nutrients.containsKey("FAMS") ? nutrients.get("FAMS").getUnits() : "g",
                 nutrients.containsKey("FAMS") ? nutrients.get("FAMS").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "  Polyunsaturated Fat",
-                nutrients.containsKey("FAPU") ? nutrients.get("FAPU").getUnit() : "g",
+                nutrients.containsKey("FAPU") ? nutrients.get("FAPU").getUnits() : "g",
                 nutrients.containsKey("FAPU") ? nutrients.get("FAPU").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Transaturated Fat",
-                nutrients.containsKey("FATRN") ? nutrients.get("FATRN").getUnit() : "g",
+                nutrients.containsKey("FATRN") ? nutrients.get("FATRN").getUnits() : "g",
                 nutrients.containsKey("FATRN") ? nutrients.get("FATRN").getValue(): "~"));
         Double EPA_value = nutrients.containsKey("F20D5") ? nutrients.get("F20D5").getValueD() : 0.00;
         Double DHA_value = nutrients.containsKey("F22D6") ? nutrients.get("F22D6").getValueD() : 0.00;
@@ -252,202 +252,202 @@ public class DetailedFragment extends Fragment implements AdapterView.OnItemSele
         //Carbohydrates
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Carbohydrates"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Total Carbohydrates",
-                nutrients.containsKey("CHOCDF") ? nutrients.get("CHOCDF").getUnit() : "g",
+                nutrients.containsKey("CHOCDF") ? nutrients.get("CHOCDF").getUnits() : "g",
                 nutrients.containsKey("CHOCDF") ? nutrients.get("CHOCDF").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "  Dietry Fibre",
-                nutrients.containsKey("FIBTG") ? nutrients.get("FIBTG").getUnit() : "g",
+                nutrients.containsKey("FIBTG") ? nutrients.get("FIBTG").getUnits() : "g",
                 nutrients.containsKey("FIBTG") ? nutrients.get("FIBTG").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "  Sugars",
-                nutrients.containsKey("SUGAR") ? nutrients.get("SUGAR").getUnit() : "g",
+                nutrients.containsKey("SUGAR") ? nutrients.get("SUGAR").getUnits() : "g",
                 nutrients.containsKey("SUGAR") ? nutrients.get("SUGAR").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "      Glucose",
-                nutrients.containsKey("GLUS") ? nutrients.get("GLUS").getUnit() : "mg",
+                nutrients.containsKey("GLUS") ? nutrients.get("GLUS").getUnits() : "mg",
                 nutrients.containsKey("GLUS") ? nutrients.get("GLUS").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "      Sucrose",
-                nutrients.containsKey("SUCS") ? nutrients.get("SUCS").getUnit() : "mg",
+                nutrients.containsKey("SUCS") ? nutrients.get("SUCS").getUnits() : "mg",
                 nutrients.containsKey("SUCS") ? nutrients.get("SUCS").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "      Maltose",
-                nutrients.containsKey("MALS") ? nutrients.get("MALS").getUnit() : "mg",
+                nutrients.containsKey("MALS") ? nutrients.get("MALS").getUnits() : "mg",
                 nutrients.containsKey("MALS") ? nutrients.get("MALS").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "      Lactose",
-                nutrients.containsKey("LACS") ? nutrients.get("LACS").getUnit() : "mg",
+                nutrients.containsKey("LACS") ? nutrients.get("LACS").getUnits() : "mg",
                 nutrients.containsKey("LACS") ? nutrients.get("LACS").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "      Galactose",
-                nutrients.containsKey("GALS") ? nutrients.get("GALS").getUnit() : "mg",
+                nutrients.containsKey("GALS") ? nutrients.get("GALS").getUnits() : "mg",
                 nutrients.containsKey("GALS") ? nutrients.get("GALS").getValue(): "~"));
         //Protein
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Protein"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Protein",
-                nutrients.containsKey("PROCNT") ? nutrients.get("PROCNT").getUnit() : "g",
+                nutrients.containsKey("PROCNT") ? nutrients.get("PROCNT").getUnits() : "g",
                 nutrients.containsKey("PROCNT") ? nutrients.get("PROCNT").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Tryptophan",
-                nutrients.containsKey("TRP_G") ? nutrients.get("TRP_G").getUnit() : "mg",
+                nutrients.containsKey("TRP_G") ? nutrients.get("TRP_G").getUnits() : "mg",
                 nutrients.containsKey("TRP_G") ? nutrients.get("TRP_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Threonine",
-                nutrients.containsKey("THR_G") ? nutrients.get("THR_G").getUnit() : "mg",
+                nutrients.containsKey("THR_G") ? nutrients.get("THR_G").getUnits() : "mg",
                 nutrients.containsKey("THR_G") ? nutrients.get("THR_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Isoleucine",
-                nutrients.containsKey("ILE_G") ? nutrients.get("ILE_G").getUnit() : "mg",
+                nutrients.containsKey("ILE_G") ? nutrients.get("ILE_G").getUnits() : "mg",
                 nutrients.containsKey("ILE_G") ? nutrients.get("ILE_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Leucine",
-                nutrients.containsKey("LEU_G") ? nutrients.get("LEU_G").getUnit() : "mg",
+                nutrients.containsKey("LEU_G") ? nutrients.get("LEU_G").getUnits() : "mg",
                 nutrients.containsKey("LEU_G") ? nutrients.get("LEU_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Lysine",
-                nutrients.containsKey("LYS_G") ? nutrients.get("LYS_G").getUnit() : "mg",
+                nutrients.containsKey("LYS_G") ? nutrients.get("LYS_G").getUnits() : "mg",
                 nutrients.containsKey("LYS_G") ? nutrients.get("LYS_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Methionine",
-                nutrients.containsKey("MET_G") ? nutrients.get("MET_G").getUnit() : "mg",
+                nutrients.containsKey("MET_G") ? nutrients.get("MET_G").getUnits() : "mg",
                 nutrients.containsKey("MET_G") ? nutrients.get("MET_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Cystine",
-                nutrients.containsKey("CYS_G") ? nutrients.get("CYS_G").getUnit() : "mg",
+                nutrients.containsKey("CYS_G") ? nutrients.get("CYS_G").getUnits() : "mg",
                 nutrients.containsKey("CYS_G") ? nutrients.get("CYS_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Phenylalanine",
-                nutrients.containsKey("PHE_G") ? nutrients.get("PHE_G").getUnit() : "mg",
+                nutrients.containsKey("PHE_G") ? nutrients.get("PHE_G").getUnits() : "mg",
                 nutrients.containsKey("PHE_G") ? nutrients.get("PHE_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Tyrosine",
-                nutrients.containsKey("TYR_G") ? nutrients.get("TYR_G").getUnit() : "mg",
+                nutrients.containsKey("TYR_G") ? nutrients.get("TYR_G").getUnits() : "mg",
                 nutrients.containsKey("TYR_G") ? nutrients.get("TYR_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Valine",
-                nutrients.containsKey("VAL_G") ? nutrients.get("VAL_G").getUnit() : "mg",
+                nutrients.containsKey("VAL_G") ? nutrients.get("VAL_G").getUnits() : "mg",
                 nutrients.containsKey("VAL_G") ? nutrients.get("VAL_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Arginine",
-                nutrients.containsKey("ARG_G") ? nutrients.get("ARG_G").getUnit() : "mg",
+                nutrients.containsKey("ARG_G") ? nutrients.get("ARG_G").getUnits() : "mg",
                 nutrients.containsKey("ARG_G") ? nutrients.get("ARG_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Histidine",
-                nutrients.containsKey("HISTN_G") ? nutrients.get("HISTN_G").getUnit() : "mg",
+                nutrients.containsKey("HISTN_G") ? nutrients.get("HISTN_G").getUnits() : "mg",
                 nutrients.containsKey("HISTN_G") ? nutrients.get("HISTN_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Alanine",
-                nutrients.containsKey("ALA_G") ? nutrients.get("ALA_G").getUnit() : "mg",
+                nutrients.containsKey("ALA_G") ? nutrients.get("ALA_G").getUnits() : "mg",
                 nutrients.containsKey("ALA_G") ? nutrients.get("ALA_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Aspartic",
-                nutrients.containsKey("ASP_G") ? nutrients.get("ASP_G").getUnit() : "mg",
+                nutrients.containsKey("ASP_G") ? nutrients.get("ASP_G").getUnits() : "mg",
                 nutrients.containsKey("ASP_G") ? nutrients.get("ASP_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Glutamic",
-                nutrients.containsKey("GLU_G") ? nutrients.get("GLU_G").getUnit() : "mg",
+                nutrients.containsKey("GLU_G") ? nutrients.get("GLU_G").getUnits() : "mg",
                 nutrients.containsKey("GLU_G") ? nutrients.get("GLU_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Proline",
-                nutrients.containsKey("PRO_G") ? nutrients.get("PRO_G").getUnit() : "mg",
+                nutrients.containsKey("PRO_G") ? nutrients.get("PRO_G").getUnits() : "mg",
                 nutrients.containsKey("PRO_G") ? nutrients.get("PRO_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Serine",
-                nutrients.containsKey("SER_G") ? nutrients.get("SER_G").getUnit() : "mg",
+                nutrients.containsKey("SER_G") ? nutrients.get("SER_G").getUnits() : "mg",
                 nutrients.containsKey("SER_G") ? nutrients.get("SER_G").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Hyroxyprofile",
-                nutrients.containsKey("HYP") ? nutrients.get("HYP").getUnit() : "mg",
+                nutrients.containsKey("HYP") ? nutrients.get("HYP").getUnits() : "mg",
                 nutrients.containsKey("HYP") ? nutrients.get("HYP").getValue(): "~"));
         //Minerals
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Minerals"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Calcium",
-                nutrients.containsKey("CA") ? nutrients.get("CA").getUnit() : "mg",
+                nutrients.containsKey("CA") ? nutrients.get("CA").getUnits() : "mg",
                 nutrients.containsKey("CA") ? nutrients.get("CA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Iron",
-                nutrients.containsKey("FE") ? nutrients.get("FE").getUnit() : "mg",
+                nutrients.containsKey("FE") ? nutrients.get("FE").getUnits() : "mg",
                 nutrients.containsKey("FE") ? nutrients.get("FE").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Magnesium",
-                nutrients.containsKey("MG") ? nutrients.get("MG").getUnit() : "mg",
+                nutrients.containsKey("MG") ? nutrients.get("MG").getUnits() : "mg",
                 nutrients.containsKey("MG") ? nutrients.get("MG").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Phosphorus",
-                nutrients.containsKey("CA") ? nutrients.get("CA").getUnit() : "mg",
+                nutrients.containsKey("CA") ? nutrients.get("CA").getUnits() : "mg",
                 nutrients.containsKey("CA") ? nutrients.get("CA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Potassium",
-                nutrients.containsKey("K") ? nutrients.get("K").getUnit() : "mg",
+                nutrients.containsKey("K") ? nutrients.get("K").getUnits() : "mg",
                 nutrients.containsKey("K") ? nutrients.get("K").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Sodium",
-                nutrients.containsKey("NA") ? nutrients.get("NA").getUnit() : "mg",
+                nutrients.containsKey("NA") ? nutrients.get("NA").getUnits() : "mg",
                 nutrients.containsKey("NA") ? nutrients.get("NA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Zinc",
-                nutrients.containsKey("ZN") ? nutrients.get("ZN").getUnit() : "mg",
+                nutrients.containsKey("ZN") ? nutrients.get("ZN").getUnits() : "mg",
                 nutrients.containsKey("ZN") ? nutrients.get("ZN").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Copper",
-                nutrients.containsKey("CA") ? nutrients.get("CA").getUnit() : "mg",
+                nutrients.containsKey("CA") ? nutrients.get("CA").getUnits() : "mg",
                 nutrients.containsKey("CA") ? nutrients.get("CA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Manganese",
-                nutrients.containsKey("CU") ? nutrients.get("CU").getUnit() : "mg",
+                nutrients.containsKey("CU") ? nutrients.get("CU").getUnits() : "mg",
                 nutrients.containsKey("CU") ? nutrients.get("CU").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Selenium",
-                nutrients.containsKey("SE") ? nutrients.get("SE").getUnit() : "mg",
+                nutrients.containsKey("SE") ? nutrients.get("SE").getUnits() : "mg",
                 nutrients.containsKey("SE") ? nutrients.get("SE").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Flouride",
-                nutrients.containsKey("FLD") ? nutrients.get("FLD").getUnit() : "mg",
+                nutrients.containsKey("FLD") ? nutrients.get("FLD").getUnits() : "mg",
                 nutrients.containsKey("FLD") ? nutrients.get("FLD").getValue(): "~"));
         //Vitamins
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, "Vitamins"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Vitamin C",
-                nutrients.containsKey("VITC") ? nutrients.get("VITC").getUnit() : "mg",
+                nutrients.containsKey("VITC") ? nutrients.get("VITC").getUnits() : "mg",
                 nutrients.containsKey("VITC") ? nutrients.get("VITC").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Vitamin A",
-                nutrients.containsKey("VITA_IU") ? nutrients.get("VITA_IU").getUnit() : "IU",
+                nutrients.containsKey("VITA_IU") ? nutrients.get("VITA_IU").getUnits() : "IU",
                 nutrients.containsKey("VITA_IU") ? nutrients.get("VITA_IU").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "    Retinol",
-                nutrients.containsKey("RETOL") ? nutrients.get("RETOL").getUnit() : "mcg",
+                nutrients.containsKey("RETOL") ? nutrients.get("RETOL").getUnits() : "mcg",
                 nutrients.containsKey("RETOL") ? nutrients.get("RETOL").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "    Retinol Activity Equivalent (RAE)",
-                nutrients.containsKey("VITA_RAE") ? nutrients.get("VITA_RAE").getUnit() : "mcg",
+                nutrients.containsKey("VITA_RAE") ? nutrients.get("VITA_RAE").getUnits() : "mcg",
                 nutrients.containsKey("VITA_RAE") ? nutrients.get("VITA_RAE").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "    Alpha Carotene",
-                nutrients.containsKey("CARTA") ? nutrients.get("CARTA").getUnit() : "mcg",
+                nutrients.containsKey("CARTA") ? nutrients.get("CARTA").getUnits() : "mcg",
                 nutrients.containsKey("CARTA") ? nutrients.get("CARTA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "    Beta Carotene",
-                nutrients.containsKey("CARTB") ? nutrients.get("CARTB").getUnit() : "mg",
+                nutrients.containsKey("CARTB") ? nutrients.get("CARTB").getUnits() : "mg",
                 nutrients.containsKey("CARTB") ? nutrients.get("CARTB").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "    Beta Cryptoxathin",
-                nutrients.containsKey("CRYPX") ? nutrients.get("CRYPX").getUnit() : "mg",
+                nutrients.containsKey("CRYPX") ? nutrients.get("CRYPX").getUnits() : "mg",
                 nutrients.containsKey("CRYPX") ? nutrients.get("CRYPX").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "    Lycopene",
-                nutrients.containsKey("LYCPN") ? nutrients.get("LYCPN").getUnit() : "mg",
+                nutrients.containsKey("LYCPN") ? nutrients.get("LYCPN").getUnits() : "mg",
                 nutrients.containsKey("LYCPN") ? nutrients.get("LYCPN").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "    Lutein + Zeaxanthin",
-                nutrients.containsKey("LUT+ZEA") ? nutrients.get("LUT+ZEA").getUnit() : "mg",
+                nutrients.containsKey("LUT+ZEA") ? nutrients.get("LUT+ZEA").getUnits() : "mg",
                 nutrients.containsKey("LUT+ZEA") ? nutrients.get("LUT+ZEA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Vitamin D",
-                nutrients.containsKey("VITD") ? nutrients.get("VITD").getUnit() : "mg",
+                nutrients.containsKey("VITD") ? nutrients.get("VITD").getUnits() : "mg",
                 nutrients.containsKey("VITD") ? nutrients.get("VITD").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Vitamin E (Alpha-Tocopherol)",
-                nutrients.containsKey("TOCPHA") ? nutrients.get("TOCPHA").getUnit() : "mg",
+                nutrients.containsKey("TOCPHA") ? nutrients.get("TOCPHA").getUnits() : "mg",
                 nutrients.containsKey("TOCPHA") ? nutrients.get("TOCPHA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Beta Trocopherol",
-                nutrients.containsKey("TOCPHB") ? nutrients.get("TOCPHB").getUnit() : "mg",
+                nutrients.containsKey("TOCPHB") ? nutrients.get("TOCPHB").getUnits() : "mg",
                 nutrients.containsKey("TOCPHB") ? nutrients.get("TOCPHB").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "   Delta Tocopherol",
-                nutrients.containsKey("TOCPHD") ? nutrients.get("TOCPHD").getUnit() : "mg",
+                nutrients.containsKey("TOCPHD") ? nutrients.get("TOCPHD").getUnits() : "mg",
                 nutrients.containsKey("TOCPHD") ? nutrients.get("TOCPHD").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Vitamin K",
-                nutrients.containsKey("VITK") ? nutrients.get("VITK").getUnit() : "mcg",
+                nutrients.containsKey("VITK") ? nutrients.get("VITK").getUnits() : "mcg",
                 nutrients.containsKey("VITK") ? nutrients.get("VITK").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Thiamin",
-                nutrients.containsKey("THIA") ? nutrients.get("THIA").getUnit() : "mg",
+                nutrients.containsKey("THIA") ? nutrients.get("THIA").getUnits() : "mg",
                 nutrients.containsKey("THIA") ? nutrients.get("THIA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Riboflavin",
-                nutrients.containsKey("RIBF") ? nutrients.get("RIBF").getUnit() : "mg",
+                nutrients.containsKey("RIBF") ? nutrients.get("RIBF").getUnits() : "mg",
                 nutrients.containsKey("RIBF") ? nutrients.get("RIBF").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Niacin",
-                nutrients.containsKey("NIA") ? nutrients.get("NIA").getUnit() : "mg",
+                nutrients.containsKey("NIA") ? nutrients.get("NIA").getUnits() : "mg",
                 nutrients.containsKey("NIA") ? nutrients.get("NIA").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Vitamin B6",
-                nutrients.containsKey("SE") ? nutrients.get("SE").getUnit() : "mg",
+                nutrients.containsKey("SE") ? nutrients.get("SE").getUnits() : "mg",
                 nutrients.containsKey("SE") ? nutrients.get("SE").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Folate",
-                nutrients.containsKey("FOL") ? nutrients.get("FOL").getUnit() : "mcg",
+                nutrients.containsKey("FOL") ? nutrients.get("FOL").getUnits() : "mcg",
                 nutrients.containsKey("FOL") ? nutrients.get("FOL").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Food Folate",
-                nutrients.containsKey("FOLFD") ? nutrients.get("FOLFD").getUnit() : "mcg",
+                nutrients.containsKey("FOLFD") ? nutrients.get("FOLFD").getUnits() : "mcg",
                 nutrients.containsKey("FOLFD") ? nutrients.get("FOLFD").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Folic Acid",
-                nutrients.containsKey("FOLAC") ? nutrients.get("FOLAC").getUnit() : "mcg",
+                nutrients.containsKey("FOLAC") ? nutrients.get("FOLAC").getUnits() : "mcg",
                 nutrients.containsKey("FOLAC") ? nutrients.get("FOLAC").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Dietry Folate Equivalents",
-                nutrients.containsKey("FOLDFE") ? nutrients.get("FOLDFE").getUnit() : "mcg",
+                nutrients.containsKey("FOLDFE") ? nutrients.get("FOLDFE").getUnits() : "mcg",
                 nutrients.containsKey("FOLDFE") ? nutrients.get("FOLDFE").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Niacin",
-                nutrients.containsKey("VITAB6A") ? nutrients.get("VITAB6A").getUnit() : "mg",
+                nutrients.containsKey("VITAB6A") ? nutrients.get("VITAB6A").getUnits() : "mg",
                 nutrients.containsKey("VITAB6A") ? nutrients.get("VITAB6A").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Pantothenic Acid",
-                nutrients.containsKey("PANTAC") ? nutrients.get("PANTAC").getUnit() : "mg",
+                nutrients.containsKey("PANTAC") ? nutrients.get("PANTAC").getUnits() : "mg",
                 nutrients.containsKey("PANTAC") ? nutrients.get("PANTAC").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Choline",
-                nutrients.containsKey("CHOLN") ? nutrients.get("CHOLN").getUnit() : "mg",
+                nutrients.containsKey("CHOLN") ? nutrients.get("CHOLN").getUnits() : "mg",
                 nutrients.containsKey("CHOLN") ? nutrients.get("CHOLN").getValue(): "~"));
         data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD,  "Betaine",
-                nutrients.containsKey("BETN") ? nutrients.get("BETN").getUnit() : "mg",
+                nutrients.containsKey("BETN") ? nutrients.get("BETN").getUnits() : "mg",
                 nutrients.containsKey("BETN") ? nutrients.get("BETN").getValue(): "~"));
 
         mAdapter = new ExpandableListAdapter(data);

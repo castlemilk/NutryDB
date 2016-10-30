@@ -8,6 +8,12 @@ import java.util.Map;
  * Created by benebsworth on 21/06/16.
  */
 public class FoodProfile extends BaseFoodProfile implements Serializable{
+    /**
+     * This is a POJO responsible for the de-serialisation of a food profile retrieved from
+     * firebase. It has a nesting of other POJO's such as nutrient, portions and the potential of
+     * other nesting opportunities around additional meta data or feature sets to be offered in
+     * the foodprofile view.
+     */
     private HashMap<String, Nutrient> nutrients;
     private HashMap<String, Portion> portions;
 
@@ -34,9 +40,6 @@ public class FoodProfile extends BaseFoodProfile implements Serializable{
     public HashMap<String, Nutrient> getNutrients(Portion portion) {
         if (portion != null) {
             HashMap<String, Nutrient> result = new HashMap<>();
-        /*TODO: get nutrients based on the scaling/portion size. Implement the scaling here?
-        *       Need to implement the scale change on the hashmap and re-pack with the new values.
-        * */
             System.out.println("package: "+portion.getPortion().toString());
             System.out.println("g="+portion.getG());
             double scaling_factor = Double.valueOf(portion.getG());
@@ -58,5 +61,10 @@ public class FoodProfile extends BaseFoodProfile implements Serializable{
     public Nutrient getNutrient(String abbrev) {
         return nutrients.get(abbrev);
 
+    }
+    public void addNutrient(String abbreviation, Nutrient nutrient) {
+        String newName = AbbreviationMapping.getName(abbreviation);
+        nutrient.setName(newName);
+        nutrients.put(abbreviation, nutrient);
     }
 }

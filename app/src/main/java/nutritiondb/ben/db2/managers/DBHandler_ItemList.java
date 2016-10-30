@@ -77,8 +77,8 @@ public class DBHandler_ItemList extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_ID, item.getUUID());
         values.put(KEY_NAME, item.getName());
-        values.put(KEY_SOURCE, item.getGroup());
-        values.put(KEY_GROUP, item.getSource());
+        values.put(KEY_GROUP, item.getGroup());
+        values.put(KEY_SOURCE, item.getSource());
         db.insert(TABLE_ITEMLIST, null, values);
 
     }
