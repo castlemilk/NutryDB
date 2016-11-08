@@ -59,7 +59,16 @@ public class FoodProfile extends BaseFoodProfile implements Serializable{
     }
 
     public Nutrient getNutrient(String abbrev) {
-        return nutrients.get(abbrev);
+        if (nutrients.containsKey(abbrev)) {
+            return new Nutrient(AbbreviationMapping.getName(abbrev),
+                    nutrients.get(abbrev).getUnits(),
+                    nutrients.get(abbrev).getValue());
+        }
+        else {
+            return new Nutrient(AbbreviationMapping.getName(abbrev),
+                    AbbreviationMapping.getDefaultUnits(abbrev),
+                    "~");
+        }
 
     }
     public void addNutrient(String abbreviation, Nutrient nutrient) {
