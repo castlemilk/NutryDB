@@ -388,62 +388,62 @@ public class AbbreviationMapping {
         tmp.put("SN", "ug");
         tmp.put("ZN", "mg");
         //Vitamins
-        tmp.put("BIOT", "Biotin (B7)");
-        tmp.put("B1", "Thiamin (B1)");
-        tmp.put("B2", "Riboflavin (B2)");
-        tmp.put("B3", "Niacin (B3)");
-        tmp.put("VITB6", "Pyridoxine (B6)");
-        tmp.put("VITB12", "Cobalamin (B12)");
-        tmp.put("CARTA", "Alpha carotene");
-        tmp.put("CARTB", "Beta carotene");
-        tmp.put("CARTBEQ", "Beta carotene equivalents");
+        tmp.put("BIOT", "ug");
+        tmp.put("B1", "mg");
+        tmp.put("B2", "mg");
+        tmp.put("B3", "mg");
+        tmp.put("VITB6", "mg");
+        tmp.put("VITB12", "ug");
+        tmp.put("CARTA", "ug");
+        tmp.put("CARTB", "ug");
+        tmp.put("CARTBEQ", "ug");
         tmp.put("CHOLN", "Choline");
-        tmp.put("CRYPX", "Cryptoxanthin");
-        tmp.put("NIA", "Niacin (B3)");
-        tmp.put("NIAEQ", "Niacin Equivalents");
+        tmp.put("CRYPX", "ug");
+        tmp.put("NIA", "mg");
+        tmp.put("NIAEQ", "mg");
 
-        tmp.put("FOL", "Total folates");
-        tmp.put("FOLAC", "Folic acid");
-        tmp.put("FOLFD", "Folate, natural");
-        tmp.put("FOLDFE", "Dietary folate equivalents");
-        tmp.put("LUT+ZEA", "Lutein + Zeaxanthin");
-        tmp.put("LUTN", "Lutein");
-        tmp.put("LYCPN", "Lycopene");
+        tmp.put("FOL", "ug");
+        tmp.put("FOLAC", "ug");
+        tmp.put("FOLFD", "ug");
+        tmp.put("FOLDFE", "ug");
+        tmp.put("LUT+ZEA", "ug");
+        tmp.put("LUTN", "ug");
+        tmp.put("LYCPN", "ug");
 
-        tmp.put("MK4", "Menaquinone-4");
-        tmp.put("PANTAC", "Pantothenic acid (B5)");
-        tmp.put("VITB6A", "Pyridoxine (B6)");
-        tmp.put("VITB12", "Cobalamin (B12)");
-        tmp.put("VITE", "Vitamin E");
-        tmp.put("VITK", "Vitamin K (phylloquinone)");
-        tmp.put("VITK1D", "");
-        tmp.put("RETOL", "Retinol");
+        tmp.put("MK4", "ug");
+        tmp.put("PANTAC", "mg");
+        tmp.put("VITB6A", "mg");
+        tmp.put("VITB12", "ug");
+        tmp.put("VITE", "mg");
+        tmp.put("VITK", "ug");
+        tmp.put("VITK1D", "ug");
+        tmp.put("RETOL", "ug");
         tmp.put("VITA_IU", "");
-        tmp.put("VITA", "Retinol equivalents (VIT A)");
-        tmp.put("VITC", "Vitamin C");
+        tmp.put("VITA", "ug");
+        tmp.put("VITC", "mg");
         //vit d
-        tmp.put("CHOCAL", "Cholecalciferol (D3)");
-        tmp.put("ERGCAL", "Ergocalciferol (D2)");
-        tmp.put("CHOCALOH", "25-OH Cholecalciferol (25-OH D3)");
-        tmp.put("ERGCALOH", "25-OH Ergocalciferol (25-OH D2)");
-        tmp.put("VITDEQ", "Vitamin D3 equivalents, with factors");
-        tmp.put("VITD", "Vitamin D");
+        tmp.put("CHOCAL", "ug");
+        tmp.put("ERGCAL", "ug");
+        tmp.put("CHOCALOH", "ug");
+        tmp.put("ERGCALOH", "ug");
+        tmp.put("VITDEQ", "ug");
+        tmp.put("VITD", "ug");
         //sterols
-        tmp.put("PHYSTR", "Phytosterols");
-        tmp.put("STID7", "Stigmasterol"); //usually delta 7-stigmasterol
-        tmp.put("CAMD5", "Campesterol");
-        tmp.put("SITSTR", "Sitosterol");
-        tmp.put("TOCPHA", "Alpha-tocopherol");
-        tmp.put("TOCTRA", "Alpha-tocotrienol");
-        tmp.put("TOCPHB", "Beta-tocopherol");
-        tmp.put("TOCTRB", "Beta-tocotrienol");
-        tmp.put("TOCPHD", "Delta-tocopherol");
-        tmp.put("TOCTRD", "Delta-tocotrienol");
-        tmp.put("TOCPHG", "Gamma-tocopherol");
-        tmp.put("TOCTRG", "Gamma-tocotrienol");
+        tmp.put("PHYSTR", "mg");
+        tmp.put("STID7", "mg"); //usually delta 7-stigmasterol
+        tmp.put("CAMD5", "mg");
+        tmp.put("SITSTR", "mg");
+        tmp.put("TOCPHA", "mg");
+        tmp.put("TOCTRA", "mg");
+        tmp.put("TOCPHB", "mg");
+        tmp.put("TOCTRB", "mg");
+        tmp.put("TOCPHD", "mg");
+        tmp.put("TOCTRD", "mg");
+        tmp.put("TOCPHG", "mg");
+        tmp.put("TOCTRG", "mg");
         //Other
-        tmp.put("CAFFN", "Caffeine");
-        tmp.put("CHOLE", "Cholesterol");
+        tmp.put("CAFFN", "mg");
+        tmp.put("CHOLE", "mg");
 
     }
 
