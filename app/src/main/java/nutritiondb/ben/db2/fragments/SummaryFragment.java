@@ -21,13 +21,9 @@ import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.shamanland.fonticon.FontIconDrawable;
 
-import java.util.HashMap;
-
 import nutritiondb.ben.db2.Application;
 import nutritiondb.ben.db2.R;
 import nutritiondb.ben.db2.models.FoodProfile;
-import nutritiondb.ben.db2.models.Nutrient;
-import nutritiondb.ben.db2.models.NutritionalData;
 import nutritiondb.ben.db2.models.Portion;
 import nutritiondb.ben.db2.views.adapters.SummaryDataRecyclerAdapter;
 
@@ -48,7 +44,7 @@ public class SummaryFragment extends Fragment implements AdapterView.OnItemSelec
     private RecyclerView recyclerView;
     private SummaryDataRecyclerAdapter mAdapter;
     private Spinner servingSelector;
-//    private List<NutritionalData> nutData = new ArrayList<>();
+//    private List<NutrientRow> nutData = new ArrayList<>();
     ListView listView1;
 
     @Override
@@ -195,29 +191,9 @@ public class SummaryFragment extends Fragment implements AdapterView.OnItemSelec
     public void build_table(Portion portion) {
         Log.i(TAG,"build_table:started build");
         System.out.print("portion:" +portion.toString());
-        HashMap<String, Nutrient> nutrients = foodProfile.getNutrients(portion);
-//
-        NutritionalData nutDatanew[]  = new NutritionalData[]
-                {
-                        new NutritionalData("", "Units", "", R.layout.list_item_row_header),
-                        new NutritionalData("Energy", "kCal", nutrients.get("ENERC_KCAL").getValue(), R.layout.list_item_row_header),
-                        new NutritionalData("", "kJ", nutrients.get("ENERC_KJ").getValue(), R.layout.list_item_row),
-                        new NutritionalData("Carbohydrates Total", "g", nutrients.containsKey("CHOCDF") ? nutrients.get("CHOCDF").getValue() : "~", R.layout.list_item_row_header),
-                        new NutritionalData("Sugars", "g", nutrients.containsKey("SUGAR") ? nutrients.get("SUGAR").getValue() : "~", R.layout.list_item_row_sub),
-                        new NutritionalData("Fibre", "g", nutrients.containsKey("FIBTG") ? nutrients.get("FIBTG").getValue() : "~", R.layout.list_item_row_sub),
-                        new NutritionalData("Protein", "g", nutrients.containsKey("PROCNT") ? nutrients.get("PROCNT").getValue() : "~", R.layout.list_item_row),
-                        new NutritionalData("Fat", "g", nutrients.containsKey("FAT") ? nutrients.get("FAT").getValue() : "~", R.layout.list_item_row),
-                        new NutritionalData("Sodium", "mg", nutrients.containsKey("NA") ? nutrients.get("NA").getValue() : "~", R.layout.list_item_row),
-                        new NutritionalData("Potassium", "mg", nutrients.containsKey("K") ? nutrients.get("K").getValue() : "~", R.layout.list_item_row),
-                        new NutritionalData("Vitamin C", "mg", nutrients.containsKey("VITC") ? nutrients.get("VITC").getValue() : "~", R.layout.list_item_row),
-                        new NutritionalData("Vitamin D", "mg", nutrients.containsKey("VITD") ? nutrients.get("VITD").getValue() : "~", R.layout.list_item_row),
-
-
-                };
-        mAdapter = new SummaryDataRecyclerAdapter(nutDatanew);
-//        recyclerView = (RecyclerView) summaryTabView.findViewById(R.id.factSheetListView);
+        mAdapter = new SummaryDataRecyclerAdapter(foodProfile);
         recyclerView.setAdapter(mAdapter);
-        Log.i(TAG,"build_table:build completed:added "+nutDatanew.length+" items");
+        Log.i(TAG,"build_table:build completed:added "+mAdapter.getItemCount()+" items");
 
 
 

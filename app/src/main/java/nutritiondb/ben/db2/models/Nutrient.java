@@ -48,7 +48,12 @@ public class Nutrient implements Serializable{
         this.value = Double.toString(value);
     }
     public Double getValueD() {
-        return Double.valueOf(value);
+        if (value.equals("~")){
+            return 0d;
+        }
+        else {
+            return Double.valueOf(value);
+        }
     }
     public String getUnits() {
         return units;

@@ -110,7 +110,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return data.size();
     }
 
-    private static class ListHeaderViewHolder extends RecyclerView.ViewHolder {
+    static class ListHeaderViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public ImageView btn_expand_toggle;
         public CardView parent_card;
@@ -124,7 +124,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             parent_card = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
-    private static class ListChildViewHolder extends RecyclerView.ViewHolder {
+    static class ListChildViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView unit;
         public TextView value;

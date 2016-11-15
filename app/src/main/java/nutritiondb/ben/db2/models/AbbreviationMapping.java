@@ -444,11 +444,15 @@ public class AbbreviationMapping {
         //Other
         tmp.put("CAFFN", "mg");
         tmp.put("CHOLE", "mg");
+        defaultUnitsMapping = (HashMap<String, String>) Collections.unmodifiableMap(tmp);
 
     }
 
 
     public static String getName(String abbreviation) {
         return nameMapping.get(abbreviation);
+    }
+    public static String getDefaultUnits(String abbreviation) {
+        return defaultUnitsMapping.get(abbreviation);
     }
 }
