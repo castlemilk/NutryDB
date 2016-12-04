@@ -6,6 +6,7 @@ package nutritiondb.ben.db2.models;
 public class BaseFoodProfile {
     public String NDB_no;
     public String name;
+    public String source;
     public String group;
     public long createdAt;
     public long lastAccess;

@@ -23,17 +23,16 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
     public static final int HEADER = 0;
     public static final int CHILD = 1;
     public static final int CHILD_CHILD = 2;
-
-    private List<ExpandableListAdapter.Item> data;
+    List<NutrientRow> data = new ArrayList<>();
 
     public DetailedDataRecyclerAdapter(FoodProfile foodProfile) {
-        List<NutrientRow> data = new ArrayList<>();
+
         data.add(new NutrientRow(" ", "Units", " ", ExpandableListAdapter.CHILD));
         //Energy
         data.add(new NutrientRow("Energy", ExpandableListAdapter.HEADER));
-        data.add(new NutrientRow(" ", foodProfile.getNutrient("ENERC_KCAL"),
+        data.add(new NutrientRow(" ", foodProfile.getEnergyKCal(),
                 ExpandableListAdapter.CHILD));
-        data.add(new NutrientRow(" ", foodProfile.getNutrient("ENERC_KJ"),
+        data.add(new NutrientRow(" ", foodProfile.getEnergyKJ(),
                 ExpandableListAdapter.CHILD));
         //Fat
         data.add(new NutrientRow("Fats & Fatty Acids", ExpandableListAdapter.HEADER));
@@ -219,8 +218,8 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final ExpandableListAdapter.Item item = data.get(position);
-        switch (item.type) {
+        final NutrientRow item = data.get(position);
+        switch (item.row_type) {
             case HEADER:
                 final ExpandableListAdapter.ListHeaderViewHolder itemController = (ExpandableListAdapter.ListHeaderViewHolder) holder;
                 itemController.refferalItem = item;
@@ -234,10 +233,10 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
                     @Override
                     public void onClick(View v) {
                         if (item.invisibleChildren == null) {
-                            item.invisibleChildren = new ArrayList<ExpandableListAdapter.Item>();
+                            item.invisibleChildren = new ArrayList<NutrientRow>();
                             int count = 0;
                             int pos = data.indexOf(itemController.refferalItem);
-                            while (data.size() > pos + 1 && data.get(pos + 1).type == CHILD) {
+                            while (data.size() > pos + 1 && data.get(pos + 1).row_type == CHILD) {
                                 item.invisibleChildren.add(data.remove(pos + 1));
                                 count++;
                             }
@@ -246,7 +245,7 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
                         } else {
                             int pos = data.indexOf(itemController.refferalItem);
                             int index = pos + 1;
-                            for (ExpandableListAdapter.Item i : item.invisibleChildren) {
+                            for (NutrientRow i : item.invisibleChildren) {
                                 data.add(index, i);
                                 index++;
                             }
@@ -260,7 +259,7 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
             case CHILD:
                 final ExpandableListAdapter.ListChildViewHolder childController = (ExpandableListAdapter.ListChildViewHolder) holder;
                 childController.name.setText(data.get(position).name);
-                childController.unit.setText(data.get(position).unit);
+                childController.unit.setText(data.get(position).units);
                 childController.value.setText(data.get(position).value);
                 break;
         }
@@ -268,7 +267,7 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public int getItemViewType(int position) {
-        return data.get(position).type;
+        return data.get(position).row_type;
 
     }
 

@@ -173,7 +173,6 @@ public class SummaryFragment extends Fragment implements AdapterView.OnItemSelec
         recyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
 
         build_table((Portion) getSpinner().getSelectedItem());
-//        MaterialViewPager mviewPager =
         initialise_portions();
         Log.i(TAG,"onCreateView:done");
         return summaryTabView;
@@ -191,7 +190,7 @@ public class SummaryFragment extends Fragment implements AdapterView.OnItemSelec
     public void build_table(Portion portion) {
         Log.i(TAG,"build_table:started build");
         System.out.print("portion:" +portion.toString());
-        mAdapter = new SummaryDataRecyclerAdapter(foodProfile);
+        mAdapter = new SummaryDataRecyclerAdapter(foodProfile.getScaledProfile(portion));
         recyclerView.setAdapter(mAdapter);
         Log.i(TAG,"build_table:build completed:added "+mAdapter.getItemCount()+" items");
 

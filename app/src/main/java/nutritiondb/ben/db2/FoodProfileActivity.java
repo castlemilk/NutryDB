@@ -275,7 +275,7 @@ public class FoodProfileActivity extends AppCompatActivity implements AdapterVie
         TextView group = (TextView) view.findViewById(R.id.header_group);
         group.setText(foodProfile.group);
         TextView source  = (TextView) view.findViewById(R.id.header_source);
-        source.setText("USDA");
+        source.setText(mfoodProfile.getSource());
 
         update_portions(servingAdapter);
 

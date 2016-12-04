@@ -33,8 +33,8 @@ public class SummaryDataRecyclerAdapter extends RecyclerView.Adapter<SummaryData
         summaryNutrients  = new NutrientRow[]
                 {
                         new NutrientRow("", "Units", "", R.layout.list_item_row_header),
-                        new NutrientRow("Energy", foodProfile.getNutrient("ENERC"), R.layout.list_item_row_header),
-                        new NutrientRow("", foodProfile.getNutrient("ENERC_KJ"), R.layout.list_item_row),
+                        new NutrientRow("Energy", foodProfile.getEnergyKJ(), R.layout.list_item_row_header),
+                        new NutrientRow("", foodProfile.getEnergyKCal(), R.layout.list_item_row),
                         new NutrientRow("Carbohydrates Total", foodProfile.getNutrient("CHOCDF"), R.layout.list_item_row_header),
                         new NutrientRow("Sugars", "g", foodProfile.getNutrient("SUGAR"), R.layout.list_item_row_sub),
                         new NutrientRow("Fibre", "g", foodProfile.getNutrient("FIBTG"), R.layout.list_item_row_sub),

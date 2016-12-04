@@ -127,6 +127,7 @@ public class FireBaseController extends Application {
         * throughout the app.
         *
         * */
+
         final long t0 = System.currentTimeMillis();
         String ref_dir = "v2/"+source+"/"+NDB_No;
 
@@ -137,23 +138,23 @@ public class FireBaseController extends Application {
         items.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (source == "NUTTAB") {
-                    String group = (String) dataSnapshot.child("group/group").getValue();
-                    String name = (String) dataSnapshot.child("name/name").getValue();
+                String group = null;
+                String name = null;
+                if (source.contains("NUTTAB")) {
+                    group = (String) dataSnapshot.child("group/group").getValue();
+                    name = (String) dataSnapshot.child("name/name").getValue();
                 }
-                else if (source == "USDA") {
-                    String group = (String) dataSnapshot.child("group").getValue();
-                    String name = (String) dataSnapshot.child("name/long").getValue();
+                else if (source.contains("USDA")) {
+                    group = (String) dataSnapshot.child("group").getValue();
+                    name = (String) dataSnapshot.child("name/long").getValue();
                 }
-                String group = (String) dataSnapshot.child("group").getValue();
-                String name = (String) dataSnapshot.child("name/long").getValue();
-                Log.d(TAG, "getProfile:group:"+group);
-                Log.d(TAG, "getProfile:name:"+name);
-                FoodProfile profile = new FoodProfile(NDB_No, name, group);
+                Log.d(TAG, "getProfile:group:" + group);
+                Log.d(TAG, "getProfile:name:" + name);
+                FoodProfile profile = new FoodProfile(NDB_No, name, source, group);
                 //access portions:
                 for (DataSnapshot portionSnapshot : dataSnapshot.child("portions").getChildren()) {
                     Portion portion = portionSnapshot.getValue(Portion.class);
-                    profile.getPortions().put(portionSnapshot.getKey(),portion);
+                    profile.getPortions().put(portionSnapshot.getKey(), portion);
                 }
                 //access nutrients:
                 for (DataSnapshot nutrientSnapshot : dataSnapshot.child("nutrients").getChildren()) {

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nutritiondb.ben.db2.R;
+import nutritiondb.ben.db2.models.NutrientRow;
 
 /**
  * Created by benebsworth on 25/07/16.
@@ -22,8 +23,8 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public static final int CHILD = 1;
     public static final int CHILD_CHILD = 2;
 
-    private List<Item> data;
-    public ExpandableListAdapter(List<Item> data) {
+    private List<NutrientRow> data;
+    public ExpandableListAdapter(List<NutrientRow> data) {
         this.data = data;
     }
     @Override
@@ -52,8 +53,8 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final Item item = data.get(position);
-        switch (item.type) {
+        final NutrientRow item = data.get(position);
+        switch (item.row_type) {
             case HEADER:
                 final ListHeaderViewHolder itemController = (ListHeaderViewHolder) holder;
                 itemController.refferalItem = item;
@@ -67,10 +68,10 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                     @Override
                     public void onClick(View v) {
                         if (item.invisibleChildren == null) {
-                            item.invisibleChildren = new ArrayList<Item>();
+                            item.invisibleChildren = new ArrayList<NutrientRow>();
                             int count = 0;
                             int pos = data.indexOf(itemController.refferalItem);
-                            while (data.size() > pos + 1 && data.get(pos + 1).type == CHILD) {
+                            while (data.size() > pos + 1 && data.get(pos + 1).row_type == CHILD) {
                                 item.invisibleChildren.add(data.remove(pos + 1));
                                 count++;
                             }
@@ -79,7 +80,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                         } else {
                             int pos = data.indexOf(itemController.refferalItem);
                             int index = pos + 1;
-                            for (Item i : item.invisibleChildren) {
+                            for (NutrientRow i : item.invisibleChildren) {
                                 data.add(index, i);
                                 index++;
                             }
@@ -93,7 +94,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             case CHILD:
                 final ListChildViewHolder childController = (ListChildViewHolder) holder;
                 childController.name.setText(data.get(position).name);
-                childController.unit.setText(data.get(position).unit);
+                childController.unit.setText(data.get(position).units);
                 childController.value.setText(data.get(position).value);
                 break;
         }
@@ -101,7 +102,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public int getItemViewType(int position) {
-        return data.get(position).type;
+        return data.get(position).row_type;
 
     }
 
@@ -115,7 +116,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         public ImageView btn_expand_toggle;
         public CardView parent_card;
 
-        public Item refferalItem;
+        public NutrientRow refferalItem;
 
         public ListHeaderViewHolder(View itemView) {
             super(itemView);
@@ -129,7 +130,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         public TextView unit;
         public TextView value;
 
-        public Item refferalItem;
+        public NutrientRow refferalItem;
 
         public ListChildViewHolder(View itemView) {
             super(itemView);
@@ -146,7 +147,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         public String name;
         public String unit;
         public String value;
-        public List<Item> invisibleChildren;
+        public List<NutrientRow> invisibleChildren;
 
         public Item(int type, String name) {
             //header input

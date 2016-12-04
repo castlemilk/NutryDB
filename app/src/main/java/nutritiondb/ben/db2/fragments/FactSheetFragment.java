@@ -19,17 +19,12 @@ import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.shamanland.fonticon.FontIconDrawable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import nutritiondb.ben.db2.Application;
 import nutritiondb.ben.db2.FoodProfileActivity;
 import nutritiondb.ben.db2.R;
 import nutritiondb.ben.db2.models.FoodProfile;
-import nutritiondb.ben.db2.models.Nutrient;
 import nutritiondb.ben.db2.models.Portion;
-import nutritiondb.ben.db2.views.adapters.ExpandableListAdapter;
+import nutritiondb.ben.db2.views.adapters.DetailedDataRecyclerAdapter;
 import nutritiondb.ben.db2.views.adapters.SummaryDataRecyclerAdapter;
 
 /** Fragment response for generating the nutrition fact sheet display. Will route usage of
@@ -200,18 +195,19 @@ public class FactSheetFragment extends Fragment {
 
     public void build_summary_table(FoodProfile foodProfile, Portion portion) {
         Log.i(TAG,"build_table:started build");
-        System.out.print("portion:" +portion.toString());
-        SummaryDataRecyclerAdapter mAdapter = new SummaryDataRecyclerAdapter(foodProfile);
-        factList.setAdapter(mAdapter);
-        Log.i(TAG,"build_table:build completed:added "+mAdapter.getItemCount()+" items");
+        Log.i(TAG, "portion:" +portion.toString());
+        factList.setAdapter(
+                new SummaryDataRecyclerAdapter(foodProfile.getScaledProfile(portion))
+                            );
+        Log.i(TAG,"build_table:build completed:added "+factList.getAdapter().getItemCount()+" items");
 
     }
     public void build_detailed_table(FoodProfile foodProfile, Portion portion) {
         Log.i(TAG, "build_table:started build");
-        System.out.print("portion:" + portion.toString());
-        HashMap<String, Nutrient> nutrients = foodProfile.getNutrients(portion);
-
-        factList.setAdapter(new ExpandableListAdapter(data));
+        Log.i(TAG, "portion:" +portion.toString());
+        factList.setAdapter(
+                new DetailedDataRecyclerAdapter(foodProfile.getScaledProfile(portion))
+                            );
     }
 
 

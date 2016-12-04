@@ -2,6 +2,7 @@ package nutritiondb.ben.db2.models;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by benebsworth on 30/10/16.
@@ -12,8 +13,8 @@ public class AbbreviationMapping {
      * Dictionary lookup containing the mapping between nutrient abbreviations standardized by
      * the universial INFOODS schema and the corresponding names for a food.
      */
-    private static HashMap<String, String> nameMapping = new HashMap<>();
-    private static HashMap<String, String> defaultUnitsMapping = new HashMap<>();
+    private static Map<String, String> nameMapping = new HashMap<>();
+    private static Map<String, String> defaultUnitsMapping = new HashMap<>();
 
 
 
@@ -22,6 +23,7 @@ public class AbbreviationMapping {
 
         //Energy
         tmp.put("ENERC", "Energy");
+        tmp.put("ENERC1", "Energy, including dietary fibre");
         tmp.put("ENERC_KCAL", "Energy");
         //Carbohydrates
         tmp.put("CHOCDF", "Carbohydrate, by difference");
@@ -229,7 +231,7 @@ public class AbbreviationMapping {
         //Other
         tmp.put("CAFFN", "Caffeine");
         tmp.put("CHOLE", "Cholesterol");
-        nameMapping = (HashMap<String, String>) Collections.unmodifiableMap(tmp);
+        nameMapping = Collections.unmodifiableMap(tmp);
 
         tmp.clear();
         // ------- DEFAULT UNITS ------------
@@ -237,6 +239,7 @@ public class AbbreviationMapping {
         // so for example if you have 0.001g then convert to 1mg etc.
         //Energy
         tmp.put("ENERC", "kJ");
+        tmp.put("ENERC1", "kJ");
         tmp.put("ENERC_KCAL", "kCal");
         //Carbohydrates
         tmp.put("CHOCDF", "g");
@@ -397,7 +400,7 @@ public class AbbreviationMapping {
         tmp.put("CARTA", "ug");
         tmp.put("CARTB", "ug");
         tmp.put("CARTBEQ", "ug");
-        tmp.put("CHOLN", "Choline");
+        tmp.put("CHOLN", "ug");
         tmp.put("CRYPX", "ug");
         tmp.put("NIA", "mg");
         tmp.put("NIAEQ", "mg");
@@ -444,7 +447,7 @@ public class AbbreviationMapping {
         //Other
         tmp.put("CAFFN", "mg");
         tmp.put("CHOLE", "mg");
-        defaultUnitsMapping = (HashMap<String, String>) Collections.unmodifiableMap(tmp);
+        defaultUnitsMapping = Collections.unmodifiableMap(tmp);
 
     }
 
