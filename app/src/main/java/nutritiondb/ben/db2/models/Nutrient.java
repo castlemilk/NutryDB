@@ -18,7 +18,7 @@ public class Nutrient implements Serializable{
     private String name;
     private String units;
     private String value;
-    DecimalFormat df = new DecimalFormat("#.##");
+    private transient DecimalFormat df = new DecimalFormat("#.##");
     private Nutrient() {
     }
     public Nutrient(String name, String units, String value) {

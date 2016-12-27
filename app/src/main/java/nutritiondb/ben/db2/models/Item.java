@@ -11,7 +11,7 @@ public class Item {
     private String mSource;
 
 
-    public Item () {}
+//    public Item () {}
     public Item(String UUID, String name, String group, String source) {
         mUUID = UUID;
         mName = name;
@@ -24,6 +24,7 @@ public class Item {
     public void setUUID(String UUID) {
         mUUID = UUID;
     }
+
     public String getName() {
         return mName;
     }
@@ -37,6 +38,7 @@ public class Item {
     public void setGroup(String group) {
         mGroup = group;
     }
+
     public String getSource() {
         return mSource;
     }

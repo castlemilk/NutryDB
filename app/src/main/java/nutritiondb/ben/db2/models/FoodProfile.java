@@ -15,7 +15,7 @@ public class FoodProfile extends BaseFoodProfile implements Serializable{
      * other nesting opportunities around additional meta data or feature sets to be offered in
      * the foodprofile view.
      */
-    DecimalFormat df = new DecimalFormat("#.##");
+    private transient DecimalFormat df = new DecimalFormat("#.##");
     private HashMap<String, Nutrient> nutrients;
     private HashMap<String, Portion> portions;
 
