@@ -11,13 +11,14 @@ public class Item {
     private String mSource;
 
 
-//    public Item () {}
+
     public Item(String UUID, String name, String group, String source) {
         mUUID = UUID;
         mName = name;
         mGroup = group;
         mSource = source;
     }
+    public Item () {}
     public String getUUID() {
         return mUUID;
     }

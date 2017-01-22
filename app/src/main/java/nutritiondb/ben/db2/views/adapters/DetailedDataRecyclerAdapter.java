@@ -120,7 +120,7 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
         data.add(new NutrientRow("Magnesium",
                 foodProfile.getNutrient("MG"), ExpandableListAdapter.CHILD));
         data.add(new NutrientRow("Phosphorus",
-                foodProfile.getNutrient("CA"), ExpandableListAdapter.CHILD));
+                foodProfile.getNutrient("P"), ExpandableListAdapter.CHILD));
         data.add(new NutrientRow("Potassium",
                 foodProfile.getNutrient("K"), ExpandableListAdapter.CHILD));
         data.add(new NutrientRow("Sodium",
@@ -128,9 +128,9 @@ public class DetailedDataRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
         data.add(new NutrientRow("Zinc",
                 foodProfile.getNutrient("ZN"), ExpandableListAdapter.CHILD));
         data.add(new NutrientRow("Copper",
-                foodProfile.getNutrient("CA"), ExpandableListAdapter.CHILD));
-        data.add(new NutrientRow("Manganese",
                 foodProfile.getNutrient("CU"), ExpandableListAdapter.CHILD));
+        data.add(new NutrientRow("Manganese",
+                foodProfile.getNutrient("MG"), ExpandableListAdapter.CHILD));
         data.add(new NutrientRow("Selenium",
                 foodProfile.getNutrient("SE"), ExpandableListAdapter.CHILD));
         data.add(new NutrientRow("Flouride",

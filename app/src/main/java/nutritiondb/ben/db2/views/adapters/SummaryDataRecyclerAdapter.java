@@ -45,7 +45,6 @@ public class SummaryDataRecyclerAdapter extends RecyclerView.Adapter<SummaryData
                         new NutrientRow("Vitamin C", "mg", foodProfile.getNutrient("VITC"), R.layout.list_item_row),
                         new NutrientRow("Vitamin D", "mg", foodProfile.getNutrient("VITD"), R.layout.list_item_row),
 
-
                 };
     }
 
